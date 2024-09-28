@@ -1,0 +1,58 @@
+
+<h1>Upload proof of payment</h1>
+
+
+<div class="card-container">
+  <mat-card class="custom-card">
+    <mat-card-header>
+      <mat-card-title>Upload POP</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <input type="file" (change)="onFileSelected($event)" />
+      </div>
+      
+      <!-- File selection message -->
+    <div [ngClass]="{'file-selected': selectedFile, 'file-not-selected': !selectedFile}">
+      {{ selectedFile ? selectedFile.name : 'No file chosen' }}
+    </div>
+      
+      <!-- Error Message -->
+      <div *ngIf="uploadError" class="error-message">
+        {{ uploadError }}
+      </div>
+      
+      <!-- Upload Button -->
+      <div>
+        <button mat-raised-button color="primary" (click)="onUpload()">
+          <mat-icon>cloud_upload</mat-icon>
+          Upload</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="custom-card">
+    <mat-card-header>
+      <mat-card-title>Uploaded POP</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- Preview for Image or PDF -->
+<div *ngIf="filePreviewUrl">
+  <div *ngIf=" isImageFile()"> 
+   <!-- Preview Image -->
+   <img [src]="filePreviewUrl" alt="Image Preview" width="300">
+  </div> 
+  <div *ngIf="selectedFile?.type === 'application/pdf'">
+    <!-- Preview PDF as a button -->
+    <a mat-raised-button color="accent" [href]="filePreviewUrl" target="_blank" style="text-decoration: none;">
+      <mat-icon>picture_as_pdf</mat-icon> 
+      View PDF
+    </a>
+  </div>
+  
+</div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+

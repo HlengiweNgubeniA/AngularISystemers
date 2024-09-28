@@ -1,0 +1,60 @@
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .included-items-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .included-items-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .total-price {
+    margin: 15px 0;
+    font-weight: bold;
+  }
+  
+  .discount-percentage {
+    margin-top: 10px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .file-input {
+    margin: 20px 0;
+  }
+  
+  .submit-button {
+    width: 100%;
+  }
+
+  .included-items-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 16px; /* Adjust margin as needed */
+  }
+  
+  .selected-items {
+    margin-left: 16px; /* Space between dropdown and selected items */
+  }
+  
+  

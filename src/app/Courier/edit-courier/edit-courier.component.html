@@ -1,0 +1,21 @@
+<div class="form-container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+        <p *ngIf="editForm.get('name')?.hasError('required')">Please provide a name</p>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <textarea matInput formControlName="status"></textarea>
+      </mat-form-field> <br>
+
+      <button mat-raised-button color="primary" type="submit">Update Courier</button>
+    </form>
+  </div>

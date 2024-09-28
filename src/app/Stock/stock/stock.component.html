@@ -1,0 +1,28 @@
+<button mat-raised-button color="primary" routerLink="/create-stock">Create New</button>
+
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by name">
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="stock-container">
+  <mat-card *ngFor="let stock of dataSource.filteredData" class="stock-card">
+    <mat-card-title>Name: {{ stock.name}}</mat-card-title>
+    <mat-card-content>
+      <p>Description: {{ stock.description }}</p>
+      <p><strong>Quantity: </strong> {{ stock.quantity }}</p>
+
+      <p>Stock Type: {{ stock.stockTypeId }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button (click)="writeOffStock(stock)">Write Off</button>
+      <button mat-button color="primary" (click)="editStock(stock.id)">Edit</button>
+      <button mat-button color="warn" (click)="deleteStock(stock.id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,233 @@
+
+/* styles.css or component-specific stylesheet */
+.example-container {
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+  }
+  
+  mat-drawer {
+    width: 250px;  /* Adjust the width as needed */
+  }
+  
+  mat-drawer-content {
+    padding: 8px; /* Optional padding */
+  }
+  
+  nav a {
+    display: block;
+    padding: 8px;           
+    text-decoration: none;
+    color: #000;
+  }
+  
+  nav a:hover {
+    background-color: #ddd;
+  }
+  
+  .catalogue-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .catalogue-card {
+    width: calc(33% - 32px);
+    margin-bottom: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .catalogue-card {
+      width: calc(50% - 32px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .catalogue-card {
+      width: 100%;
+    }
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-content {
+    padding: 15px;
+  }
+  
+  .product-name {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .product-description {
+    color: #666;
+  }
+  
+  .product-size, .product-type, .product-price {
+    margin: 5px 0;
+  }
+  
+  .product-price {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  
+  /*---------------------------------------------------------*/
+  
+  h1 {
+    padding: 0 1rem;
+  }
+  
+  h2 {padding: 1rem;}
+  
+  mat-toolbar{
+    position:fixed;
+    top:0;
+    z-index: 2;
+  }
+  
+  mat-sidenav-container {
+    height:100%;
+  }
+  
+  /* Move the content down so that it won't be hidden by the toolbar*/
+  mat-sidenav {
+    padding-top: 3.5rem;
+    @media screen and (min-width: 600px) {
+      padding-top: 4rem;
+    }
+  
+    .entry{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding:0.75rem;
+    }
+  }
+  
+  /*Move the content down so that it won't be hidden by the toolbar*/
+  mat-sidenav-content{
+    padding-top: 3.5rem;
+    @media screen and (min-width: 600px) {
+        padding-top: 4rem;
+    }
+  }
+  
+  .expanded {
+    width: 250px;   
+  } 
+  
+  .content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px; /* Adjust as needed */
+  overflow-y: auto; /* Enables vertical scrolling */
+  overflow-x: hidden; /* Prevents horizontal scrolling, if not needed */
+  box-sizing: border-box;
+  
+  }
+  
+  mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  }
+  
+  /* CSS for toolbar layout */
+  .toolbar-title {
+  flex: 1; /* This pushes the title to the center */
+  text-align: center;
+  }
+  
+  .spacer {
+  flex: 1; /* This pushes the profile button to the right */
+  }
+  
+  /* Flex layout to align items properly */
+  .toolbar-title {
+  flex: 1;
+  text-align: center;
+  }
+  
+  .spacer {
+  flex: 1;
+  }
+  
+  /* Profile picture styling */
+  .profile-picture {
+  width: 40px; /* Adjust the size as needed */
+  height: 40px;
+  border-radius: 50%; /* Makes the image circular */
+  margin-right: 8px; /* Space between the image and the profile button */
+  object-fit: cover; /* Ensures the image covers the entire area without distortion */
+  }
+  
+  html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling if needed */
+  }
+  
+  body {
+  overflow: auto; /* Ensure scrollbars are added automatically */
+  }
+  
+  button {
+    display: flex;
+    align-items: center;
+  }
+  
+  span {
+    margin-left: 8px; /* Adjust spacing as needed */
+  }
+  
+  
+  
+  @media (max-width: 600px) {
+  .content {
+      padding: 10px;
+  }
+  }
+
+
+/* CSS for flickering red */
+.flicker {
+  animation: flicker-animation 1s infinite alternate;
+  color: red;
+}
+
+@keyframes flicker-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+  

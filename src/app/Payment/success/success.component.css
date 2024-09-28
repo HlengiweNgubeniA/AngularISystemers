@@ -1,0 +1,25 @@
+html, body {
+    height: 100%; /* Ensure full height */
+    margin: 0; /* Remove default margin */
+}
+
+.success-container {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full height of the viewport */
+    text-align: center; /* Center text */
+    padding: 20px; /* Padding for spacing */
+}
+
+h1 {
+    font-size: 2.5rem; /* Size of the heading */
+    color: #28a745; /* Success color */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+p {
+    font-size: 1.2rem; /* Size of the paragraph */
+    color: #333; /* Darker text color */
+}

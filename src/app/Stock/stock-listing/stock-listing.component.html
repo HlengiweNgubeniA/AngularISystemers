@@ -1,0 +1,26 @@
+<button mat-raised-button color="primary" routerLink="/stock-create">Create New</button>
+
+<div>
+    <h2>Stock Listing</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stock of stocks">
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.description }}</td>
+                <td>{{ stock.quantity }}</td>
+                <td>
+                    <button (click)="writeOffStock(stock)">Write Off</button>
+                    <button (click)="deleteStock(stock.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

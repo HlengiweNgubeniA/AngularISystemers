@@ -1,0 +1,26 @@
+<button mat-raised-button color="primary" routerLink="/create-product-price">Create Price</button>
+
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by name">
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="price-container">
+  <mat-card *ngFor="let price of dataSource.filteredData" class="price-card">
+    <mat-card-title>{{ price.price }} (ZAR)</mat-card-title>
+    <mat-card-content>
+      <p>{{ price.description }}</p>
+      <p><strong>Price ID: </strong> {{ price.productPriceId }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editProductPrice(price.productPriceId)">Edit</button>
+      <button mat-button color="warn" (click)="deleteProductPrice(price.productPriceId)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

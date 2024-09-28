@@ -1,0 +1,27 @@
+
+<h1>Receive Supplier Order</h1>
+<form [formGroup]="receiptForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="supplierOrderId">
+  <div>
+    <label for="dateReceived">Date Received</label>
+    <input type="date" formControlName="dateReceived">
+  </div>
+  <div>
+    <label for="expectedQuantity">Expected Quantity</label>
+    <input type="number" formControlName="expectedQuantity">
+  </div>
+  <div>
+    <label for="receivedQuantity">Received Quantity</label>
+    <input type="number" formControlName="receivedQuantity">
+  </div>
+  <div>
+    <label for="notes">Notes</label>
+    <textarea formControlName="notes"></textarea>
+  </div>
+  <div>
+    <label for="receiptFileName">Receipt</label>
+    <input type="file" (change)="onFileChange($event)">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+

@@ -1,0 +1,25 @@
+<button mat-raised-button color="primary" routerLink="/create-size">Create Size</button>
+
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by name">
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="size-container">
+  <mat-card *ngFor="let size of dataSource.filteredData" class="size-card">
+    <mat-card-title>{{ size.name }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ size.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editSize(size.id)">Edit</button>
+      <button mat-button color="warn" (click)="deleteSize(size.id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

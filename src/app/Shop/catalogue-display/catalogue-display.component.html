@@ -1,0 +1,14 @@
+<div class="catalogue">
+    <div class="catalogue-item" *ngFor="let item of dataSource.data">
+        <img [src]="item.catImage" alt="item.catImage" class="catalogue-image">
+        <h3>{{item.catTitle}}</h3>
+        <p class="description">{{item.catDescription}}</p>
+        <p class="date">{{item.discountStartDate | date:'MMMM d, y'}} - {{item.discountEndDate | date:'MMMM d, y'}}</p>
+        <p class="occasion">{{item.occasionTypeName}}</p>
+        <p class="discount">{{item.discountPercentage}}% off</p>
+        <p class="price">{{item.discount}}</p>
+        <button mat-raised-button color="primary" (click)="addCatalogueToBasket(item)" class="add-to-cart">Add to Cart</button>
+    </div>
+</div>
+
+

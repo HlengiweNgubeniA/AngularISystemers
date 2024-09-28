@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Apply Discount</h1>
+<div mat-dialog-content>
+  <p *ngIf="data.discount">Applying discount: {{ data.discount.disName }} - {{ data.discount.discountPercentage }}%</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Select Products</mat-label>
+    <mat-select [(value)]="selectedProductIds" multiple>
+      <mat-option *ngFor="let product of products" [value]="product.id">
+        {{ product.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button (click)="applyDiscount()">Apply Discount</button>
+</div>
+
+
+

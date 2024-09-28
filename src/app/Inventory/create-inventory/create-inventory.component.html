@@ -1,0 +1,34 @@
+<div class="form-container">
+    <form [formGroup]="inventoryForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+        <p *ngIf="inventoryForm.get('name')?.hasError('required')">Please provide name</p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <textarea matInput formControlName="quantity"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Product</mat-label>
+        <mat-select formControlName="productId">
+          <mat-option *ngFor="let product of products" [value]="product.id">
+            {{ product.name }} - {{ product.description }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <input type="file" (change)="onFileChange($event)">
+      <br>
+      
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </div>
+  

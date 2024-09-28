@@ -1,0 +1,97 @@
+.equal-size-button {
+    min-width: 100px; /* Adjust the width as needed */
+    height: 40px; /* Set a fixed height */
+    display: inline-block; /* Ensure buttons are inline */
+}
+.employee-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 16px;
+    position: relative;
+    margin: 20px auto; /* Center and provide space */
+    max-width: 3000px;
+    max-height: 400px;
+  }
+
+  th.mat-header-cell {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  th.mat-header-cell{
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+ 
+  
+  .equal-size-button {
+    min-width: 90px;
+  }
+
+  .mat-elvation-z8{
+    box-shadow: 0 4px rgba(0,0,0,0.1);
+  }
+  
+
+  .search-container{
+    width: 200px;
+    height: 30px;
+    margin: auto; /* Center the search field */
+
+  }
+
+ 
+  .employee-container {
+    max-height: 400px; /* Set the height for the scrollable area */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+  
+  .sticky-header-table th {
+    position: sticky;
+    top: 0; /* Stick to the top */
+    background-color: white; /* Background color to make it distinct */
+    z-index: 10; /* Ensure it stays on top of the data rows */
+  }
+  
+  /* Optional: Style the header */
+  .sticky-header-table th.mat-header-cell {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for better visibility */
+  }
+  
+  
+  
+  
+  .table-responsive {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    margin-top: 20px; /* Space between search and table */
+  }
+  
+  table {
+    width: 100%; /* Full width for the table */
+    min-width: 600px; /* Prevent table from collapsing */
+  } 
+  
+  .action-buttons {
+    display: flex; /* Use flexbox for button alignment */
+    justify-content: space-around; /* Space buttons evenly */
+  }
+  
+  .mat-paginator {
+    margin-top: 20px; /* Space between the table and paginator */
+  }
+  
+
+  html, body{
+    overflow-x: scroll;
+  }
+
+
+  

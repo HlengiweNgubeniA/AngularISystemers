@@ -1,0 +1,37 @@
+<!-- <div class="form-container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Percentage</mat-label>
+        <input matInput formControlName="percentage" type="text">
+        <p *ngIf="editForm.get('percentage')?.hasError('required')"></p>
+      </mat-form-field> <br>
+  
+      <button mat-raised-button color="primary" type="submit" onclick="updateVAT">Update</button>
+    </form>
+  </div> -->
+
+  <div class="page-container">
+    <mat-card class="form-card">
+      <mat-card-title>Edit VAT Percentage</mat-card-title>
+      <mat-card-content>
+        <div class="form-container">
+          <form [formGroup]="editForm" >
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Percentage</mat-label>
+              <input matInput formControlName="percentage" type="text">
+              <mat-error *ngIf="editForm.get('percentage')?.hasError('required')">
+                Percentage is required
+              </mat-error>
+            </mat-form-field> 
+            <br>
+           
+          </form>
+          <div class="button-group">
+            <button mat-raised-button color="primary" type="submit" (click) = "onSubmit()">Update</button>
+            <button mat-raised-button color="accent" type="button" (click) = "cancel()">Back</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

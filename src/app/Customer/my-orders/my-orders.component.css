@@ -1,0 +1,96 @@
+.orders-container {
+    padding: 20px;
+    padding-top: 100px;
+    max-width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.order-statuses {
+    background-color: lightblue; /* Light background for the status section */
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 16px; /* Space below the status section */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.mat-horizontal-stepper {
+    margin-top: 20px; /* Space above the stepper */
+}
+
+.orders-section {
+    padding: 15px;
+    margin: 10px; /* Space between sections */
+    border: 1px solid #ced4da; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.current-orders {
+    background-color: #e9f7ef; /* Light green for current orders */
+}
+
+.previous-orders {
+    background-color: #fce4e4; /* Light red for previous orders */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .orders-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .orders-section {
+        margin: 10px 0; /* Vertical margin for mobile */
+    }
+
+    .order-statuses {
+        margin-bottom: 20px; /* Extra space below for mobile */
+    }
+}
+
+h2, h3 {
+    margin: 10px 0; /* Spacing for headings */
+}
+
+ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+}
+
+li {
+    margin: 5px 0; /* Spacing between list items */
+    cursor: pointer; /* Indicate clickable items */
+    transition: background 0.3s; /* Smooth background transition */
+}
+
+li:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+}
+
+.step-content {
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Specific step colors */
+.step-content {
+    background-color: gray; /* Default for unspecified steps */
+}
+
+.step-content:nth-child(1) { background-color: #ff9800; } /* Placed */
+.step-content:nth-child(2) { background-color: #2196f3; } /* Pending */
+.step-content:nth-child(3) { background-color: #ffc107; } /* Processing */
+.step-content:nth-child(4) { background-color: #4caf50; } /* Done */
+.step-content:nth-child(5) { background-color: #ff5722; } /* Waiting Collection */
+.step-content:nth-child(6) { background-color: #8bc34a; } /* Complete */
+
+
+.step-content {
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: not-allowed; /* Change cursor to indicate non-interactivity */
+    pointer-events: none; /* Prevent any interaction */
+}

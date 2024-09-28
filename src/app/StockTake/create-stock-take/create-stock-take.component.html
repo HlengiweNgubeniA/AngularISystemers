@@ -1,0 +1,39 @@
+<div class="form-container">
+    <form [formGroup]="stockTakeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="location" type="text">
+        <p *ngIf="stockTakeForm.get('location')?.hasError('required')"></p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="stockTakeDescription"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Responsibility</mat-label>
+        <textarea matInput formControlName="responsibility"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Items Counted</mat-label>
+        <textarea matInput formControlName="itemsCounted"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Items Expected</mat-label>
+        <textarea matInput formControlName="itemsExpected"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput formControlName="date" [matDatepicker]="startPicker">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      
+      <button mat-raised-button color="primary" type="submit" onclick="createStockTake">Create</button>
+    </form>
+  </div>

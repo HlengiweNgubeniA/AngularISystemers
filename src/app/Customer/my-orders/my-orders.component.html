@@ -1,0 +1,254 @@
+<!-- 
+
+
+
+<div class="orders-container">
+   
+        <div class="order-statuses">
+            <h2>Order Processing Statuses</h2>
+            
+            <ng-container *ngFor="let order of orders">
+                <mat-horizontal-stepper linear>
+                    <mat-step [completed]="isStepCompleted(order.orderStatus, 1)">
+                        <ng-template matStepLabel>1. Placed</ng-template>
+                        <div class="step-content" [ngStyle]="{'background-color': getStepColor(1)}">
+                            <p>Your order has been placed.</p>
+                        </div>
+                    </mat-step>
+                    <mat-step [completed]="isStepCompleted(order.orderStatus, 2)">
+                        <ng-template matStepLabel>2. Pending</ng-template>
+                        <div class="step-content" [ngStyle]="{'background-color': getStepColor(2)}">
+                            <p>Your order is pending.</p>
+                        </div>
+                    </mat-step>
+                    <mat-step [completed]="isStepCompleted(order.orderStatus, 3)">
+                        <ng-template matStepLabel>3. Processing</ng-template>
+                        <div class="step-content" [ngStyle]="{'background-color': getStepColor(3)}">
+                            <p>Your order is being processed.</p>
+                        </div>
+                    </mat-step>
+                    <mat-step [completed]="isStepCompleted(order.orderStatus, 4)">
+                        <ng-template matStepLabel>4. Done</ng-template>
+                        <div class="step-content" [ngStyle]="{'background-color': getStepColor(4)}">
+                            <p>Your order is done.</p>
+                        </div>
+                    </mat-step>
+                    <mat-step [completed]="isStepCompleted(order.orderStatus, 5)">
+                        <ng-template matStepLabel>5. Waiting Collection</ng-template>
+                        <div class="step-content" [ngStyle]="{'background-color': getStepColor(5)}">
+                            <p>Your order is waiting for collection.</p>
+                        </div>
+                    </mat-step>
+                    <mat-step [completed]="isStepCompleted(order.orderStatus, 6)">
+                        <ng-template matStepLabel>6. Complete</ng-template>
+                        <div class="step-content" [ngStyle]="{'background-color': getStepColor(6)}">
+                            <p>Your order is complete.</p>
+                        </div>
+                    </mat-step>
+                </mat-horizontal-stepper>
+            </ng-container>
+        
+        
+          
+
+    </div>
+
+   
+    <div class="orders-container">
+        <mat-tab-group>
+            <mat-tab label="Current Orders">
+                <div class="orders-section current-orders">
+                    <h3>Current Pending Orders</h3>
+                    <ul>
+                        <li *ngFor="let order of orders" (click)="selectOrder(order)">
+                            Order #{{ order.orderId }} - {{ order.orderStatus }} <br>
+                            Shipping Address: {{ order.shippingAddress }} <br>
+                            Total Amount: R{{ order.totalAmount }}
+                        </li>
+                    </ul>
+    
+                    <div *ngIf="selectedOrder">
+                        <h4>Order Details</h4>
+                        <p>Order #{{ selectedOrder.orderId }}</p>
+                        <p>Status: {{ selectedOrder.orderStatus }}</p>
+                        <p>Shipping Address: {{ selectedOrder.shippingAddress }}</p>
+                        <p>Total Amount: R{{ selectedOrder.totalAmount }}</p>
+                        <strong>Order Lines:</strong>
+                        <ul>
+                            <li *ngFor="let line of selectedOrder.orderLines">
+                                Product: {{ line.product.name }} - Quantity: {{ line.quantity }} - Unit Price: R{{ line.unitPrice }} - Total: R{{ line.totalPrice }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </mat-tab>
+    
+            <mat-tab label="Previous Orders">
+                <div class="orders-section previous-orders">
+                    <h3>Previous Orders</h3>
+                    <ul>
+                        <li *ngFor="let order of previousOrders" (click)="selectOrder(order)">
+                            Order #{{ order.orderId }} - {{ order.orderStatus }}
+                        </li>
+                    </ul>
+    
+                    <div *ngIf="selectedOrder">
+                        <h4>Order Details</h4>
+                        <p>Order #{{ selectedOrder.orderId }}</p>
+                        <p>Status: {{ selectedOrder.orderStatus }}</p>
+                        <p>Shipping Address: {{ selectedOrder.shippingAddress }}</p>
+                        <p>Total Amount: R{{ selectedOrder.totalAmount }}</p>
+                        <strong>Order Lines:</strong>
+                        <ul>
+                            <li *ngFor="let line of selectedOrder.orderLines">
+                                Product: {{ line.product.name }} - Quantity: {{ line.quantity }} - Unit Price: R{{ line.unitPrice }} - Total: R{{ line.totalPrice}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="orders-container">
+    <!-- Top Section for Order Processing Statuses -->
+    <div class="order-statuses">
+        <h2>Order Processing Statuses</h2>
+
+        <ng-container *ngFor="let order of orders">
+            <mat-horizontal-stepper linear>
+                <mat-step [completed]="isStepCompleted(order.orderStatus, 1)" [editable]="isCurrentStep(order.orderStatus, 1)">
+                    <ng-template matStepLabel>
+                        1. Placed <span *ngIf="isStepCompleted(order.orderStatus, 1)">✔️</span>
+                    </ng-template>
+                    <div class="step-content" [ngStyle]="{'background-color': getStepColor(1)}">
+                        <p>Your order has been placed.</p>
+                    </div>
+                </mat-step>
+                <mat-step [completed]="isStepCompleted(order.orderStatus, 2)" [editable]="isCurrentStep(order.orderStatus, 2)">
+                    <ng-template matStepLabel>
+                        2. Pending <span *ngIf="isStepCompleted(order.orderStatus, 2)">✔️</span>
+                    </ng-template>
+                    <div class="step-content" [ngStyle]="{'background-color': getStepColor(2)}">
+                        <p>Your order is pending.</p>
+                    </div>
+                </mat-step>
+                <mat-step [completed]="isStepCompleted(order.orderStatus, 3)" [editable]="isCurrentStep(order.orderStatus, 3)">
+                    <ng-template matStepLabel>
+                        3. Processing <span *ngIf="isStepCompleted(order.orderStatus, 3)">✔️</span>
+                    </ng-template>
+                    <div class="step-content" [ngStyle]="{'background-color': getStepColor(3)}">
+                        <p>Your order is being processed.</p>
+                    </div>
+                </mat-step>
+                <mat-step [completed]="isStepCompleted(order.orderStatus, 4)" [editable]="isCurrentStep(order.orderStatus, 4)">
+                    <ng-template matStepLabel>
+                        4. Done <span *ngIf="isStepCompleted(order.orderStatus, 4)">✔️</span>
+                    </ng-template>
+                    <div class="step-content" [ngStyle]="{'background-color': getStepColor(4)}">
+                        <p>Your order is done.</p>
+                    </div>
+                </mat-step>
+                <mat-step [completed]="isStepCompleted(order.orderStatus, 5)" [editable]="isCurrentStep(order.orderStatus, 5)">
+                    <ng-template matStepLabel>
+                        5. Waiting Collection <span *ngIf="isStepCompleted(order.orderStatus, 5)">✔️</span>
+                    </ng-template>
+                    <div class="step-content" [ngStyle]="{'background-color': getStepColor(5)}">
+                        <p>Your order is waiting for collection.</p>
+                    </div>
+                </mat-step>
+                <mat-step [completed]="isStepCompleted(order.orderStatus, 6)" [editable]="isCurrentStep(order.orderStatus, 6)">
+                    <ng-template matStepLabel>
+                        6. Complete <span *ngIf="isStepCompleted(order.orderStatus, 6)">✔️</span>
+                    </ng-template>
+                    <div class="step-content" [ngStyle]="{'background-color': getStepColor(6)}">
+                        <p>Your order is complete.</p>
+                    </div>
+                </mat-step>
+            </mat-horizontal-stepper>
+        </ng-container>
+    </div>
+
+    <!-- Main Sections for Current and Previous Orders -->
+    <div class="orders-container">
+        <mat-tab-group>
+            <mat-tab label="Current Orders">
+                <div class="orders-section current-orders">
+                    <h3>Current Pending Orders</h3>
+                    <ul>
+                        <li *ngFor="let order of orders" (click)="selectOrder(order)">
+                            Order #{{ order.orderNumber }} - {{ order.orderStatus }} <br>
+                            Shipping Address: {{ order.shippingAddress }} <br>
+                            Total Amount: R{{ order.totalAmount }}
+                        </li>
+                    </ul>
+
+                    <div *ngIf="selectedOrder">
+                        <h4>Order Details</h4>
+                        <p>Order #{{ selectedOrder.orderNumber }}</p>
+                        <p>Status: {{ selectedOrder.orderStatus }}</p>
+                        <p>Shipping Address: {{ selectedOrder.shippingAddress }}</p>
+                        <p>Total Amount: R{{ selectedOrder.totalAmount }}</p>
+                        <strong>Order Lines:</strong>
+                        <ul>
+                            <li *ngFor="let line of selectedOrder.orderLines">
+                                Product: {{ line.product.name }} - Quantity: {{ line.quantity }} - Unit Price: R{{ line.unitPrice }} - Total: R{{ line.totalPrice }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="Previous Orders">
+                <div class="orders-section previous-orders">
+                    <h3>Previous Orders</h3>
+                    <ul>
+                        <li *ngFor="let order of oldOrders" (click)="selectOrder(order)">
+                            Order #{{ order.orderId }} - {{ order.orderStatus }}
+                        </li>
+                    </ul>
+
+                    <div *ngIf="selectedOrder">
+                        <h4>Order Details</h4>
+                        <p>Order #{{ selectedOrder.orderNumber }}</p>
+                        <p>Status: {{ selectedOrder.orderStatus }}</p>
+                        <p>Shipping Address: {{ selectedOrder.shippingAddress }}</p>
+                        <p>Total Amount: R{{ selectedOrder.totalAmount }}</p>
+                        <strong>Order Lines:</strong>
+                        <ul>
+                            <li *ngFor="let line of selectedOrder.orderLines">
+                                Product: {{ line.product.name }} - Quantity: {{ line.quantity }} - Unit Price: R{{ line.unitPrice }} - Total: R{{ line.totalPrice }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

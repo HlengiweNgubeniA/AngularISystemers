@@ -1,0 +1,65 @@
+
+<div class="table-container">
+  <div class="search-bar">
+    <mat-form-field appearance="fill">
+      <mat-label>Search by Discount Name</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Discount Name">
+    </mat-form-field>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="product-table">
+    
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let product">{{ product.disName }}</td>
+    </ng-container>
+  
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let product">{{ product.disDescription }}</td>
+    </ng-container>
+  
+    <!-- Category Column -->
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let product">{{ product.disStartDate }}</td>
+    </ng-container>
+  
+    <!-- Type Column -->
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let product">{{ product.disEndDate }}</td>
+    </ng-container>
+  
+    <!-- Price Column -->
+    <ng-container matColumnDef="percentage">
+      <th mat-header-cell *matHeaderCellDef> Percentage off (%) </th>
+      <td mat-cell *matCellDef="let product">{{ product.discountPercentage }}</td>
+    </ng-container>
+  
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let product">
+        <mat-icon style="color: green;">new_releases</mat-icon>
+      </td>
+    </ng-container>
+  
+    <!-- Actions Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-raised-button (click)="openApplyDiscountModal(product.id, product.discount)">Apply Discount</button>
+      </td>
+    </ng-container>
+    
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [pageSize]="4" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+

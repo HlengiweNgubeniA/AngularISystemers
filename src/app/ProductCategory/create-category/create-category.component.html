@@ -1,0 +1,18 @@
+<div class="form-container">
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="productCategoryName" type="text">
+        <p *ngIf="categoryForm.get('productCategoryName')?.hasError('required')">Please provide a name</p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="productCategoryDescription"></textarea>
+      </mat-form-field>
+      <br>
+
+      <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Create</button>
+    </form>
+  </div>
+  

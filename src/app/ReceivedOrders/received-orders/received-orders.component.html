@@ -1,0 +1,49 @@
+<h1>Received Supplier Orders</h1>
+
+<table mat-table [dataSource]="receivedOrders" class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let order"> {{ order.id }} </td>
+  </ng-container>
+
+  <!-- Supplier Order ID Column -->
+  <ng-container matColumnDef="supplierOrderId">
+    <th mat-header-cell *matHeaderCellDef> Supplier Order ID </th>
+    <td mat-cell *matCellDef="let order"> {{ order.supplierOrderId }} </td>
+  </ng-container>
+
+  <!-- Receipt File Name Column -->
+  <ng-container matColumnDef="receiptFileName">
+    <th mat-header-cell *matHeaderCellDef> Receipt File </th>
+    <td mat-cell *matCellDef="let order"> {{ order.receiptFileName }} </td>
+  </ng-container>
+
+  <!-- Date Received Column -->
+  <ng-container matColumnDef="dateReceived">
+    <th mat-header-cell *matHeaderCellDef> Date Received </th>
+    <td mat-cell *matCellDef="let order"> {{ order.dateReceived | date }} </td>
+  </ng-container>
+
+  <!-- Expected Quantity Column -->
+  <ng-container matColumnDef="expectedQuantity">
+    <th mat-header-cell *matHeaderCellDef> Expected Quantity </th>
+    <td mat-cell *matCellDef="let order"> {{ order.expectedQuantity }} </td>
+  </ng-container>
+
+  <!-- Received Quantity Column -->
+  <ng-container matColumnDef="receivedQuantity">
+    <th mat-header-cell *matHeaderCellDef> Received Quantity </th>
+    <td mat-cell *matCellDef="let order"> {{ order.receivedQuantity }} </td>
+  </ng-container>
+
+  <!-- Notes Column -->
+  <ng-container matColumnDef="notes">
+    <th mat-header-cell *matHeaderCellDef> Notes </th>
+    <td mat-cell *matCellDef="let order"> {{ order.notes }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

@@ -1,0 +1,28 @@
+<!-- <div class="slideshow-container" (click)="onSlideTap($event)">
+    <div class="slide" *ngFor="let cat of catalog; let i = index" [class.active]="i === currentIndex">
+      <img [src]="cat.catImage" alt="cat.catTitle" class="slide-image">
+    </div>
+  
+     <button (click)="prevSlide()" class="prev">❮</button>
+    <button (click)="nextSlide()" class="next">❯</button>
+   
+    <div class="dots">
+      <span *ngFor="let cat of catalogues; let i = index" (click)="setCurrentIndex(i)" [class.active]="i === currentIndex"></span>
+    </div>
+  </div> -->
+  <div class="slideshow-container" (click)="onSlideTap($event)">
+    <div class="slide" *ngFor="let cat of catalogues; let i = index" [class.active]="i === currentIndex">
+      <img [src]="cat.catImage" [alt]="cat.catTitle" class="slide-image">
+      <div>{{cat.catTitle}}</div>
+    </div>
+  
+    <div class="dots">
+      <span *ngFor="let cat of catalogues; let i = index" (click)="setCurrentIndex(i)" [class.active]="i === currentIndex"></span>
+    </div>
+
+  <!-- Transparent button for catalog listing -->
+  <button class="catalog-button" (click)="navigateToCatalog($event)" aria-label="Go to Catalog">View Catalog</button>
+
+  </div>
+  
+  

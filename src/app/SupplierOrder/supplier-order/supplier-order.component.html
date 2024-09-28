@@ -1,0 +1,23 @@
+<button mat-raised-button color="primary" routerLink="/create-supplier-order">Create a new supplier order</button>
+
+<div class="supplier-order-container">
+  <mat-card *ngFor="let supplierOrder of supplierOrders" class="supplier-order-card">
+    <mat-card-title>{{ supplierOrder.sOrderDate| date }}</mat-card-title>
+    <mat-card-subtitle>
+     Supplier: {{ supplierOrder.supplierId }} <br>
+     Employee: {{ supplierOrder.empId }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ supplierOrder.deliveryAddress }}</p>
+      <p><strong>Order Items: </strong> {{ supplierOrder.sOrderItems }}</p>
+      <p>Payment paymentMethod {{ supplierOrder.paymentMethod }}</p>
+      <p>Order Amount: {{ supplierOrder.paymentAmount }}</p>
+      <p>Quantity:  {{ supplierOrder.quantity }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editSupplierOrder(supplierOrder.supplierOrderId)">Edit</button>
+      <button mat-button color="warn" (click)="deleteSupplierOrder(supplierOrder.supplierOrderId)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

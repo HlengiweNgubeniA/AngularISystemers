@@ -1,0 +1,16 @@
+<div>
+    <h2>Create Stock</h2>
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" required>
+
+        <label for="description">Description:</label>
+        <input id="description" formControlName="description" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" formControlName="quantity" required>
+
+        <button type="submit">Create</button>
+    </form>
+</div>
+

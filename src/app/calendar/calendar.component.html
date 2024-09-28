@@ -1,0 +1,25 @@
+<!-- calendar.component.html -->
+<h1>SbyS Activity Calendar</h1>
+<div class="calendar" style="text-align: center;">
+  <div class="header">
+    <button (click)="changeMonth(-1)">&lt;</button>
+    <span>{{ currentYear }} - {{ (currentMonth + 1) | number:'2.0' }}</span>
+    <button (click)="changeMonth(1)">&gt;</button>
+  </div>
+  <div class="days">
+    <div class="day-name" *ngFor="let dayName of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">
+      {{ dayName }}
+    </div>
+  </div>
+  <div class="weeks">
+    <div class="week" *ngFor="let week of weeks">
+      <div 
+        class="day" 
+        [ngClass]="{ 'current-day': day === currentDay }" 
+        *ngFor="let day of week" 
+        (click)="openEventDialog(day)">
+        {{ day !== null ? day : '' }}
+      </div>
+    </div>
+  </div>  
+</div>

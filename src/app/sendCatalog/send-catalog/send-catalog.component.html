@@ -1,0 +1,82 @@
+<h1>Send Catalogue</h1><br>
+
+<div class="card-container" style="overflow-y: hidden;">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Send Special Occasion Catalogue</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="catalogueForm" (ngSubmit)="onSubmit()">
+
+        <!-- Email Selection -->
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>To:</mat-label>
+            <mat-select formControlName="toEmail" multiple>
+              <mat-option *ngFor="let email of customerEmails" [value]="email">
+                {{ email }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="catalogueForm.get('toEmail')?.invalid && catalogueForm.get('toEmail')?.touched">
+              At least one email address is required.
+            </mat-error>
+          </mat-form-field> 
+        </div>
+
+        <!-- Subject Input -->
+        <div class="form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Subject</mat-label>
+            <input matInput id="subject" formControlName="subject" type="text" required>
+            <mat-error *ngIf="catalogueForm.get('subject')?.invalid && catalogueForm.get('subject')?.touched">
+              Subject is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Body Input and File Upload -->
+        <div class="form-group">
+          <div class="body-field-container">
+            <mat-form-field appearance="fill" class="body-field">
+              <mat-label>Body</mat-label>
+              <textarea matInput id="body" formControlName="body" rows="5" required></textarea>
+              <mat-error *ngIf="catalogueForm.get('body')?.invalid && catalogueForm.get('body')?.touched">
+                Body is required.
+              </mat-error>
+
+              <!-- File Input Trigger -->
+              <mat-icon *ngIf="attachmentIconVisible" (click)="fileInput.click()" class="attachment-icon">attach_file</mat-icon>
+              <input type="file" (change)="onFileChange($event)" #fileInput multiple hidden accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+            </mat-form-field>
+
+            <!-- File Previews -->
+            <div class="file-previews">
+              <div *ngFor="let file of files" class="file-preview">
+                <div *ngIf="file.type.startsWith('image/')">
+                  <img [src]="getFilePreview(file)" [alt]="file.name" class="file-thumbnail">
+                </div>
+                <div *ngIf="file.type === 'application/pdf'">
+                  <mat-icon>picture_as_pdf</mat-icon>
+                  <span>{{ file.name }}</span>
+                </div>
+                <div *ngIf="file.type.startsWith('application/msword') || file.type.startsWith('application/vnd.openxmlformats-officedocument.wordprocessingml.document')">
+                  <mat-icon>description</mat-icon>
+                  <span>{{ file.name }}</span>
+                </div>
+                <div *ngIf="file.type.startsWith('application/vnd.ms-powerpoint') || file.type.startsWith('application/vnd.openxmlformats-officedocument.presentationml.presentation')">
+                  <mat-icon>slideshow</mat-icon>
+                  <span>{{ file.name }}</span>
+                </div>
+                <span *ngIf="!file.type.startsWith('image/') && file.type !== 'application/pdf'">Unsupported file type: {{ file.name }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit">Send</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+         

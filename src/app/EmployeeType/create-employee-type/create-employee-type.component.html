@@ -1,0 +1,17 @@
+<div class="form-container">
+    <form [formGroup]="employeeTypeForm" (ngSubmit)="onSubmit()">
+      <h1>Add employee type</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Employee Type Name</mat-label>
+      <input matInput formControlName="Name" type="text">
+      <p *ngIf="employeeTypeForm.get('Name')?.hasError('required')"></p>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="Description"></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Create</button>
+  </form>
+</div>

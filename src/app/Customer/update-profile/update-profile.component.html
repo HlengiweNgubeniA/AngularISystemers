@@ -1,0 +1,49 @@
+<!-- update-customer.component.html -->
+<div class="container mat-elevation-z8 mt-5 p-4">
+  <h2 class="text-center mb-4">Update Customer Details</h2>
+
+  <form [formGroup]="customerForm" (ngSubmit)="updateCustomer()" class="form" enctype="multipart/form-data">
+    <!-- First Name -->
+    <mat-form-field class="full-width">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="cusFirstName" placeholder="Enter first name">
+      <mat-error *ngIf="customerForm.get('cusFirstName')?.invalid">First name is required</mat-error>
+    </mat-form-field>
+
+    <!-- Last Name -->
+    <mat-form-field class="full-width">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="cusLastName" placeholder="Enter last name">
+      <mat-error *ngIf="customerForm.get('cusLastName')?.invalid">Last name is required</mat-error>
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="cusEmail" placeholder="Enter email" type="email">
+      <mat-error *ngIf="customerForm.get('cusEmail')?.invalid">A valid email is required</mat-error>
+    </mat-form-field>
+
+    <!-- Phone -->
+    <mat-form-field class="full-width">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="cusPhone" placeholder="Enter phone number">
+      <mat-error *ngIf="customerForm.get('cusPhone')?.invalid">Phone number is required</mat-error>
+    </mat-form-field>
+
+    <!-- Profile Picture -->
+    <div class="profile-picture-upload">
+      <input type="file" (change)="onFileSelect($event)" accept="image/*" class="file-input">
+      <div *ngIf="selectedImage" class="image-preview mt-3">
+        <img [src]="selectedImage" alt="Profile Picture Preview" class="img-thumbnail" width="150" height="150">
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="mt-4">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!customerForm.valid">Update</button>
+    </div>
+  </form>
+</div>
+
+  

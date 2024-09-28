@@ -1,0 +1,35 @@
+<div class="form-container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>User Id: </mat-label>
+        <input matInput formControlName="userId" type="text">
+        <p *ngIf="editForm.get('userId')?.hasError('required')"></p>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>First Name:</mat-label>
+        <textarea matInput formControlName="cusFirstName"></textarea>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name:</mat-label>
+        <textarea matInput formControlName="cusLastName"></textarea>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <textarea matInput formControlName="cusPhone"></textarea>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email Address</mat-label>
+        <textarea matInput formControlName="cusEmail"></textarea>
+      </mat-form-field> <br>
+  
+      <input type="file" (change)="onFileChange($event)">
+      <br>
+  
+      <button mat-raised-button color="primary" type="submit">Update Customer Details</button>
+    </form>
+  </div>
+

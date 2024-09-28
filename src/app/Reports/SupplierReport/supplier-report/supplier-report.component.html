@@ -1,0 +1,43 @@
+<!-- components/supplier-report/supplier-report.component.html -->
+<div class="supplier-report-container">
+    <h2>Supplier Report</h2>
+  
+    <input 
+  type="text" 
+  placeholder="Search suppliers..." 
+  (input)="filterSuppliers($event)">
+  
+    <table mat-table [dataSource]="filteredSuppliers" class="mat-elevation-z8">
+      <ng-container matColumnDef="supName">
+        <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
+        <td mat-cell *matCellDef="let supplier"> {{supplier.supName}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="supEmail">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let supplier"> {{supplier.supEmail}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="supContact">
+        <th mat-header-cell *matHeaderCellDef> Contact </th>
+        <td mat-cell *matCellDef="let supplier"> {{supplier.supContact}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="supAddress">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let supplier"> {{supplier.supAddress}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="contactPerson">
+        <th mat-header-cell *matHeaderCellDef> Contact Person </th>
+        <td mat-cell *matCellDef="let supplier"> {{supplier.contactPerson}} </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <button mat-raised-button color="primary" (click)="downloadPDF()">Download PDF</button>
+    <button mat-raised-button color="accent" (click)="exportExcel()">Export Excel</button>
+</div>
+

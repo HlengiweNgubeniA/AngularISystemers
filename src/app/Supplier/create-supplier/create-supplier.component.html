@@ -1,0 +1,32 @@
+<div class="form-container">
+  <form [formGroup]="supplierForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Supplier Name</mat-label>
+      <input matInput formControlName="supName" type="text">
+      <p *ngIf="supplierForm.get('supName')?.hasError('required')">Supplier Name is required</p>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Contact Person</mat-label>
+      <input matInput formControlName="contactPerson" type="text">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Email Address</mat-label>
+      <input matInput formControlName="supEmail" type="email">
+      <p *ngIf="supplierForm.get('supEmail')?.hasError('email')">Enter a valid email</p>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="supContact" type="text">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Physical Address</mat-label>
+      <textarea matInput formControlName="supAddress"></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Create</button>
+  </form>
+</div>

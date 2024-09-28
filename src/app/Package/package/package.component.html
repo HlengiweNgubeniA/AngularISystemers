@@ -1,0 +1,26 @@
+<button mat-raised-button color="primary" routerLink="../create-package">Create Package</button>
+
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by name">
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="package-container">
+  <mat-card *ngFor="let package of dataSource.filteredData" class="package-card">
+    <mat-card-title>{{ package.packageName }}</mat-card-title>
+    <mat-card-subtitle>Package Type: {{ package.packageTypeId }} - Catalogue: {{ package.catalogueId }}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ package.packageDescription }}</p>
+      <p><strong>Price:</strong> {{ package.packagePrice }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editPackage(package.packageId)">Edit</button>
+      <button mat-button color="warn" (click)="deletePackage(package.packageId)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

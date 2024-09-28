@@ -1,0 +1,39 @@
+<div class="form-container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="packageName" type="text">
+        <p *ngIf="editForm.get('packageName')?.hasError('required')">Please provide a name</p>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="packageDescription"></textarea>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <textarea matInput formControlName="packagePrice"></textarea>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Package Type</mat-label>
+        <mat-select formControlName="packageTypeId">
+          <mat-option *ngFor="let type of packageTypes" [value]="type.packageTypeId">
+            {{ type.packageTypeName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Catalogue</mat-label>
+        <mat-select formControlName="catalogueId">
+          <mat-option *ngFor="let catalogue of catalogues" [value]="catalogue.catalogueId">
+            {{ catalogue.catTitle }} - {{ catalogue.catDescription}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> <br>
+  
+      <button mat-raised-button color="primary" type="submit">Update</button>
+    </form>
+  </div>

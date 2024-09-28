@@ -1,0 +1,94 @@
+.upload-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .upload-container input {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .upload-container button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .upload-container button:disabled {
+    background-color: #ccc;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  img {
+    border: 2px solid black;
+    width: 300px;
+    margin-top: 10px;
+  }
+
+ /* Center the card container on the page */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center; /* Center the cards horizontally */
+  align-items: stretch; /* Stretch to equal height */
+}
+
+.custom-card {
+  flex: 0 0 300px; /* Set a fixed width for the cards */
+  margin: 10px; /* Add space between the cards */
+  display: flex;
+  flex-direction: column; /* Ensure the content inside the card stacks vertically */
+}
+
+mat-card-header, mat-card-content {
+  flex: 1; /* Allow the header and content to stretch equally */
+}
+
+
+.custom-card button {
+  margin-top: 20px; /* Add space above the button */
+}
+
+.error-message {
+  color: red; /* Color for error message */
+  margin: 10px 0; /* Space around the error message */
+}
+
+.file-selected {
+  color: green; /* Color for when a file is selected */
+}
+
+.file-not-selected {
+  color: red; /* Color for when no file is chosen */
+}
+
+/* Optional: Style for the PDF button */
+a {
+  margin-top: 10px; /* Space above the button */
+}
+
+mat-icon {
+  margin-right: 5px; /* Space between icon and text */
+}
+

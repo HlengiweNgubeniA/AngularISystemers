@@ -1,0 +1,22 @@
+.form-container {
+    max-width: 500px; /* Adjust the max width as needed */
+    margin: 0 auto; /* Center the form */
+    padding: 20px; /* Padding around the form */
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: space-between; /* Space out elements evenly */
+    height: 100%; /* Full height to utilize space */
+}
+
+.full-width {
+    width: 100%; /* Make all form fields full width */
+}
+
+mat-form-field {
+    margin-bottom: 16px; /* Space between fields */
+}
+
+button {
+    margin-top: 24px; /* More space above the button */
+    align-self: flex-end; /* Align the button to the right */
+}

@@ -1,0 +1,58 @@
+<h1>Help Library</h1>
+
+<div>
+    <h1>{{ helpDocument.title }}</h1>
+    <p>{{ helpDocument.content }}</p>
+  
+    <h2>Comments</h2>
+    <div *ngFor="let comment of comments">
+      <strong>{{ comment.user }}</strong>: {{ comment.text }} <em>{{ comment.createdAt | date:'short' }}</em>
+    </div>
+  
+    <textarea [(ngModel)]="newComment" placeholder="Add a comment"></textarea>
+    <button (click)="submitComment()">Submit Comment</button>
+  </div>
+
+  <h2> For Employee Users </h2>
+  <p>
+Creating Items: As an employee, creating new items in the system is a straightforward process. Begin by navigating to the "Items" section of the dashboard. You’ll see a "Create New Item" button. Fill out the form with all required details, including item name, description, price, and category. Once you’ve reviewed the information, click “Submit.” Remember, accuracy is vital, as incorrect details can lead to confusion for customers and other users.
+
+Making Orders: To make an order, go to the "Orders" section. Select the items you wish to purchase, enter the quantities, and fill in your payment details. It’s essential to verify that the items are in stock. If you encounter any issues, contact a supervisor for assistance.
+
+Making Payments: Payments can be processed through the "Payment" section. Choose your preferred payment method and follow the on-screen prompts. Ensure you receive a confirmation of your payment; if not, check your transaction history or reach out to support.
+
+  </p>
+
+  <h2>  For Admin Users </h2>
+  <p>
+   
+Editing System Documents: As an admin, you have the ability to edit help documents and guides for the system. Navigate to the Help Document section, click the edit button, and modify the content as needed. It’s crucial to ensure the information is up-to-date and accurate, as it serves as a resource for all users.
+
+Handling Errors: If an error arises during any process, document it carefully. Check logs to understand the cause and attempt to reproduce the error. If you cannot resolve the issue, escalate it to the IT team for further investigation.
+  </p>
+
+  <h2> For Baker Users </h2>
+
+  <p>
+ 
+Creating Recipes: In the system, creating a new recipe involves adding all necessary ingredients and instructions. Go to the "Recipes" section, click "Add Recipe," and input the details. Ensure measurements are accurate, as this directly affects the quality of your baked goods.
+
+Managing Orders: Monitor incoming orders regularly. Ensure that all required ingredients are available and prepare the items according to the specified timeline. If any issues arise, such as ingredient shortages, notify your supervisor immediately.
+  </p>
+
+  <h2> For Owner Users </h2>
+  <p>
+Overview of Operations: As the owner, you have access to all aspects of the business operations. Regularly review sales reports, inventory levels, and employee performance metrics. Use this information to make informed decisions about business growth and development.
+
+Interacting with Customers: Engaging with customers is vital for business success. Ensure that feedback from customers is documented and addressed promptly. Use the help document to guide your team on how to handle common inquiries effectively.
+  </p>
+
+  <h2>  For Customer Users </h2>
+<p>
+Placing Orders: To place an order, simply navigate to the items you wish to purchase and add them to your cart. Once you’re ready to checkout, follow the prompts to enter your shipping information and payment details. If you encounter any difficulties, the help document is available for guidance.
+
+Making Payments: When completing your order, you can select your preferred payment method. Ensure that all information is accurate to avoid delays. If you experience any issues with payment processing, please refer to the help section or contact support.
+</p>
+
+
+  

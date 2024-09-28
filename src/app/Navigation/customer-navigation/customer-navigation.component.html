@@ -1,0 +1,55 @@
+
+  <div style="position: fixed; width: 100%;">
+  <!-- app.component.html -->
+<mat-toolbar color="primary">
+    <div class="profile-container">
+      <!-- Profile picture thumbnail -->
+      <img class="profile-thumbnail" [routerLink]="['./profile']" [src]="customer.picture" alt="Profile Picture">
+      <span>{{ customer.cusFirstName }} {{ customer.cusLastName }}</span>
+    </div>
+    <span class="spacer"></span>
+    <button mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon> Logout
+    </button>
+  </mat-toolbar>
+
+
+<mat-sidenav-container  class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+      <mat-nav-list>
+          <a mat-list-item routerLink="./my-cart">
+              <mat-icon>shopping_cart</mat-icon> My Cart
+              <span *ngIf="showPaymentIcon" [ngClass]="{'green-icon': showPaymentIcon}">
+                  <mat-icon matTooltip="Ready to checkout!" matTooltipPosition="below">payment</mat-icon>
+              </span>
+          </a>
+          <a mat-list-item routerLink="./my-orders">
+              <mat-icon>assignment</mat-icon> My Orders
+          </a>
+
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-icon>settings</mat-icon>
+                  <span>Settings</span>
+              </mat-expansion-panel-header>
+
+              <!-- Dropdown list items -->
+              <mat-action-list>
+                  <a mat-list-item routerLink="profile">
+                      <mat-icon>person</mat-icon> My Profile
+                  </a>
+                  <a mat-list-item routerLink="update-password">
+                      <mat-icon>lock</mat-icon> Update Password
+                  </a>
+              </mat-action-list>
+          </mat-expansion-panel>
+      </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <div>
+          <router-outlet></router-outlet>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

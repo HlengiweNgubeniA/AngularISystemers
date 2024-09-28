@@ -1,0 +1,145 @@
+<!-- 
+  
+  <br>
+  
+  <span class="spacer"></span>
+  <br>
+  <div class="container">
+    <app-catalog-slideshow class="fixed-slideshow"></app-catalog-slideshow>
+  
+    <div class="layout">
+      <div class="filter-tree">
+
+        <h3>Filter Options</h3>
+
+
+        <div>
+          <label>Product Type:</label>
+          <select [(ngModel)]="selectedTypeId" (change)="onFilterChange()">
+            <option *ngFor="let type of productTypes" [value]="type.id">{{ type.name }}</option>
+          </select>
+        
+          <label>Category:</label>
+          <select [(ngModel)]="selectedCategoryId" (change)="onFilterChange()">
+            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+          </select>
+        
+          <label>Price Range:</label>
+          <input type="number" [(ngModel)]="priceRange.min" (change)="onFilterChange()" placeholder="Min Price" />
+          <input type="number" [(ngModel)]="priceRange.max" (change)="onFilterChange()" placeholder="Max Price" />
+        
+          <label>Size:</label>
+          <select [(ngModel)]="selectedSizeId" (change)="onFilterChange()">
+            <option *ngFor="let size of sizes" [value]="size.id">{{ size.name }}</option>
+          </select>
+        
+          <h3>Filtered Products:</h3>
+          <ul>
+            <li *ngFor="let product of filteredProducts">
+              {{ product.productName }} - {{ product.price?.amount }} USD
+            </li>
+          </ul>
+        </div>
+        
+        
+
+        
+      </div>
+  
+      <div class="product-grid">
+        <div class="card" *ngFor="let product of products">
+          <div class="card-header">
+            <h2>{{ product.name }}</h2>
+            <img mat-card-image [src]="product.pictureUrl" alt="{{ product.name }}" class="product-image">
+          </div>
+          <div class="card-body">
+            <p class="price">R{{ product.price }}</p>
+            <p class="size">{{ product.sizeName }}</p>
+            <p class="type">{{ product.typeName }}</p>
+            <p class="description">{{ product.description }}</p>
+          </div>
+          <div class="card-footer">
+            <button mat-raised-button color="accent" (click)="navigateToReviews(product.id)">
+              <mat-icon>rate_review</mat-icon> Reviews
+            </button>
+            <button mat-raised-button color="primary" class="add-to-basket" (click)="addProductToBasket(product)">
+              <mat-icon>add</mat-icon> to basket
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+
+
+   <br>
+   <span class="spacer"></span>
+   <br>
+   <div class="container">
+     <app-catalog-slideshow class="fixed-slideshow"></app-catalog-slideshow>
+   
+     <div class="layout">
+       <div class="filter-tree">
+         <h3>Filter Options</h3>
+         
+         <div>
+           <label>Product Type:</label>
+           <select [(ngModel)]="selectedTypeId" (change)="onFilterChange()">
+             <option value="">All Types</option> <!-- Allow selecting all types -->
+             <option *ngFor="let type of productTypes" [value]="type.id">{{ type.name }}</option>
+           </select>
+         
+           <label>Category:</label>
+           <select [(ngModel)]="selectedCategoryId" (change)="onFilterChange()">
+             <option value="">All Categories</option> <!-- Allow selecting all categories -->
+             <option *ngFor="let category of productCategories" [value]="category.productCategoryId">{{ category.productCategoryName }}</option>
+           </select>
+         
+           <label>Price Range:</label>
+           <input type="number" [(ngModel)]="priceRange.min" (change)="onFilterChange()" placeholder="Min Price" />
+           <input type="number" [(ngModel)]="priceRange.max" (change)="onFilterChange()" placeholder="Max Price" />
+         
+           <label>Size:</label>
+           <select [(ngModel)]="selectedSizeId" (change)="onFilterChange()">
+             <option value="">All Sizes</option> <!-- Allow selecting all sizes -->
+             <option *ngFor="let size of productSizes" [value]="size.id">{{ size.name }}</option>
+           </select>
+           
+           <h3>Filtered Products:</h3>
+           <ul>
+             <li *ngFor="let product of filteredProducts">
+               {{ product.name }}  - {{ product.price }}
+             </li>
+           </ul>
+         </div>
+       </div>
+   
+       <div class="product-grid">
+         <div class="card" *ngFor="let product of filteredProducts"> <!-- Change to filteredProducts -->
+           <div class="card-header">
+             <h2>{{ product.name }}</h2>
+             <img mat-card-image [src]="product.pictureUrl" alt="{{ product.name }}" class="product-image">
+           </div>
+           <div class="card-body">
+             <p class="price">R{{ product.price }}</p> <!-- Make sure to access the right property -->
+             <p class="size">{{ product.sizeName }}</p>
+             <p class="type">{{ product.typeName }}</p>
+             <p class="description">{{ product.description }}</p>
+           </div>
+           <div class="card-footer">
+             <button mat-raised-button color="accent" (click)="navigateToReviews(product.id)">
+               <mat-icon>rate_review</mat-icon> Reviews
+             </button>
+             <button mat-raised-button color="primary" class="add-to-basket" (click)="addProductToBasket(product)">
+               <mat-icon>add</mat-icon> to basket
+             </button>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   
+
+
+

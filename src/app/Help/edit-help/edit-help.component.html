@@ -1,0 +1,39 @@
+<div class="form-container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Help Title</mat-label>
+        <input matInput formControlName="helpTitle" type="text">
+        <p *ngIf="editForm.get('helpTitle')?.hasError('required')">Title is required</p>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Content</mat-label>
+        <textarea matInput formControlName="content"></textarea>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Keywords</mat-label>
+        <textarea matInput formControlName="keywords"></textarea>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <textarea matInput formControlName="author"></textarea>
+      </mat-form-field> <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Support Contact</mat-label>
+        <textarea matInput formControlName="supportContact"></textarea>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Last Update</mat-label>
+        <input matInput formControlName="lastUpdate" [matDatepicker]="startPicker">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field> <br>
+  
+      <button mat-raised-button color="primary" type="submit" onclick="updateHelp">Update</button>
+    </form>
+  </div>
+

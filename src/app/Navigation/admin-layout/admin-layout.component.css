@@ -1,0 +1,48 @@
+/* Fix the toolbar */
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: purple;
+  color: white;
+  height: 64px; /* Set height explicitly */
+}
+
+.sidenav-container {
+  margin-top: 64px; /* To account for the fixed toolbar height */
+  height: calc(100vh - 64px);
+}
+
+.sidenav {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.content-wrapper {
+  padding: 16px; /* Space around content */
+  height: 100%; /* Use full height */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow: hidden; /* Prevent scroll on content area */
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Make the sidenav and content responsive */
+@media (max-width: 600px) {
+  .sidenav {
+    width: 100%;
+  }
+
+  .content-wrapper {
+    padding: 8px;
+  }
+}

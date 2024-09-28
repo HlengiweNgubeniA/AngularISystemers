@@ -1,0 +1,26 @@
+.table-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack elements vertically */
+    height: 100vh; /* Full viewport height for vertical centering */
+  }
+  
+  .product-table {
+    width: 80%; /* Adjust width as needed */
+    max-width: 1000px; /* Maximum width to prevent it from stretching too much */
+    margin: 20px 0; /* Space around the table */
+    border-collapse: collapse; /* Ensure borders collapse for better styling */
+  }
+  
+  /* Optional: Add some padding to header cells and cells */
+  th.mat-header-cell, td.mat-cell {
+    padding: 12px; /* Adjust padding as needed */
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Optional: Styling for the paginator */
+  .mat-paginator {
+    margin-top: 20px; /* Space above paginator */
+  }
+  

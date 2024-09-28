@@ -1,0 +1,140 @@
+<br>
+<div>
+
+</div> <br>
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="registration-form">
+  <h2 class="form-title">Employee Registration</h2>
+
+  <!-- First Name -->
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="empFirstName" type="text" placeholder="Enter first name">
+    <mat-error *ngIf="registrationForm.get('empFirstName')?.hasError('required')">
+      First Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Last Name -->
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="empLastName" type="text" placeholder="Enter last name">
+    <mat-error *ngIf="registrationForm.get('empLastName')?.hasError('required')">
+      Last Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Email -->
+  <mat-form-field appearance="fill">
+    <mat-label>Email Address</mat-label>
+    <input matInput formControlName="empEmail" type="email" placeholder="Enter email address">
+    <mat-error *ngIf="registrationForm.get('empEmail')?.hasError('required')">
+      Email is required
+    </mat-error>
+    <mat-error *ngIf="registrationForm.get('empEmail')?.hasError('pattern')">
+      Invalid email address
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Date of Birth -->
+  <mat-form-field appearance="fill">
+    <mat-label>Date of Birth</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="empDOB" [max]="maxDate" placeholder="Select date of birth">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="registrationForm.get('empDOB')?.hasError('required')">
+      Date of birth is required
+    </mat-error>
+    <mat-error *ngIf="registrationForm.get('empDOB')?.hasError('ageInvalid')">
+      You must be at least 18 years old
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Gender -->
+  <mat-form-field appearance="fill">
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="empGender" required>
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+    </mat-select>
+    <mat-error *ngIf="registrationForm.get('empGender')?.hasError('required')">
+      Gender is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Address -->
+  <mat-form-field appearance="fill">
+    <mat-label>Address</mat-label>
+    <input matInput formControlName="empAddress" type="text" placeholder="Enter address">
+    <mat-error *ngIf="registrationForm.get('empAddress')?.hasError('required')">
+      Address is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Phone -->
+  <mat-form-field appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input matInput formControlName="empPhone" type="tel" placeholder="Enter phone number">
+    <mat-error *ngIf="registrationForm.get('empPhone')?.hasError('required')">
+      Phone number is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Role -->
+  <mat-form-field appearance="fill">
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="roleId" required>
+      <ng-container *ngFor="let role of roles">
+        <mat-option *ngIf="role.roleName !== 'Customer'" [value]="role.id">
+          {{ role.roleName }} 
+        </mat-option>
+      </ng-container>
+    </mat-select>
+    <mat-error *ngIf="registrationForm.get('roleId')?.hasError('required')">
+      Role is required
+    </mat-error>
+  </mat-form-field>
+  
+ <!-- Employee Type Dropdown -->
+ <mat-form-field appearance="fill">
+  <mat-label>Employee Type</mat-label>
+  <mat-select formControlName="empTypeId" required>
+    <mat-option *ngFor="let type of types" [value]="type.empTypeId"> <!--the + converts the value from string to int-->
+      {{ type.name }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="registrationForm.get('empTypeId')?.hasError('required')">
+    Employee type is required
+  </mat-error>
+</mat-form-field>
+
+<!-- Employee Type Dropdown -->
+<!-- <mat-form-field appearance="fill">
+  <mat-label>User Type</mat-label>
+  <mat-select formControlName="userTypeId" required>
+    <mat-option *ngFor="let user of userType" [value]="user.userTypeId"> the + converts the value from string to int
+      {{ user.name }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="registrationForm.get('userTypeId')?.hasError('required')">
+    User type is required
+  </mat-error>
+</mat-form-field> -->
+
+<!-- Display User Type Name in a readonly field -->
+<mat-form-field appearance="fill">
+  <mat-label>User Type</mat-label>
+  <input matInput [value]="employeeTypeName" readonly [ngClass]="'green-highlight'" /> <!-- Display the name (e.g., "Employee") -->
+</mat-form-field>
+
+<!-- Hidden field for User Type ID (this is used for form submission) -->
+<input type="hidden" formControlName="userTypeId" />
+
+
+  <!-- Submit Button -->
+  <div class="form-actions">
+    <button mat-raised-button color="primary" type="submit">Register Employee</button>
+  </div>
+</form>
+
+

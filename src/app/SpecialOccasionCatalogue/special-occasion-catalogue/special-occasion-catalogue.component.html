@@ -1,0 +1,31 @@
+<button mat-raised-button color="primary" routerLink="/create-catalogue">Create New</button>
+
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by name">
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="catalogue-container">
+  <mat-card *ngFor="let catalogue of dataSource.filteredData" class="catalogue-card">
+    <img mat-card-image [src]="catalogue.catImage" alt="{{ catalogue.catTitle }}">
+    <mat-card-title>{{ catalogue.catTitle }}</mat-card-title>
+    <mat-card-subtitle>{{ catalogue.discountStartDate | date }} - {{ catalogue.discountEndDate | date }}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ catalogue.catDescription }}</p>
+      <p><strong>Included Items:</strong> {{ catalogue.includedItems }}</p>
+
+      <p>Discount: {{ catalogue.discountId }}</p>
+      <p>Occasion Type: {{ catalogue.occasionTypeId }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="editCatalogue(catalogue.catalogueId)">Edit</button>
+      <button mat-raised-button color="warn" (click)="deleteCatalogue(catalogue.catalogueId)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

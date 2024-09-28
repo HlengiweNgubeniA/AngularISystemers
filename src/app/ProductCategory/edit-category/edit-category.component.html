@@ -1,0 +1,16 @@
+<div class="form-container">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="productCategoryName" type="text">
+        <p *ngIf="editForm.get('productCategoryName')?.hasError('required')">Please provide a</p>
+      </mat-form-field> <br>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="productCategoryDescription"></textarea>
+      </mat-form-field> <br>
+
+      <button mat-raised-button color="primary" type="submit">Update</button>
+    </form>
+  </div>

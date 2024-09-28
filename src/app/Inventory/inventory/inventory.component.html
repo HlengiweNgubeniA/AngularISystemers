@@ -1,0 +1,27 @@
+<button mat-raised-button color="primary" routerLink="/create-inventory">Create Inventory</button>
+
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by name">
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="inventory-container">
+  <mat-card *ngFor="let inventory of dataSource.filteredData" class="inventory-card">
+    <mat-card-title>{{ inventory.name }}</mat-card-title>
+    <mat-card-subtitle>{{ inventory.productId }}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ inventory.description }}</p>
+      <p><strong>Quantity:</strong> {{ inventory.quantity }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editInventory(inventory.inventoryId)">Edit</button>
+      <button mat-button color="warn" (click)="deleteInventory(inventory.inventoryId)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

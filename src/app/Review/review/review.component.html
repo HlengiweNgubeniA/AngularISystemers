@@ -1,0 +1,80 @@
+<!-- <button mat-raised-button color="primary" routerLink="/create-review">Create a new review</button>
+
+<div class="review-container">
+  <mat-card *ngFor="let review of reviews" class="review-card">
+    <mat-card-title>{{ review.customerId }}</mat-card-title>
+    <mat-card-subtitle>{{ review.productId }} - {{ review.rating }}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ review.content }}</p>
+      <p><strong> {{ review.date }}</strong></p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editReview(review.id)">Edit</button>
+      <button mat-button color="warn" (click)="deleteReview(review.id)">Delete</button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['id', 'customerId', 'productId', 'content', 'rating', 'actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id', 'customerId', 'productId', 'content', 'rating', 'actions']"></tr>
+</table>
+
+  <button mat-raised-button color="accent" (click)="openReviewDialog(product)">
+            <mat-icon>rate_review</mat-icon> Reviews
+          </button> -->
+
+<!-- product-list.component.html -->
+<!-- <div *ngFor="let review of product.reviews">
+  <p>{{review.customerName}}:</p>
+  <div class="star-rating">
+    <mat-icon *ngFor="let star of stars; let i = index" 
+              [ngClass]="{'filled': i < review.rating}">
+      star
+    </mat-icon>
+  </div>
+  <p>{{review.reviewText}}</p>
+</div> -->
+<!-- <h2>Reviews for Product ID: {{ product.id }}</h2>
+<div *ngIf="reviews.length === 0">No reviews available for this product.</div>
+<div *ngFor="let review of reviews">
+  <h4>Rating: {{ review.rating }}</h4>
+  <p>Comment: {{ review.comment }}</p>
+  <p>Date Posted: {{ review.date | date }}</p>
+</div>
+<button mat-raised-button>Write a review</button> -->
+<!-- <h2>Reviews for Product ID: {{ product.id }}</h2>
+<div class="reviews-container">
+  <div *ngIf="reviews.length === 0">No reviews available for this product.</div>
+  <div *ngFor="let review of reviews">
+    <h4>Rating: {{ review.rating }}</h4>
+    <p>Comment: {{ review.comment }}</p>
+    <p>Date Posted: {{ review.date | date }}</p>
+  </div>
+  <button mat-raised-button (click)="openReviewDialog()" class="write-review-button">Write a review</button>
+</div> -->
+
+<!-- <h2>Reviews for Product ID: {{ productId }}</h2>
+<div *ngFor="let review of reviews">
+  <h3>{{ review.user }}</h3>
+  <p>{{ review.reviewText }}</p>
+  <p>Rating: {{ review.rating }} Stars</p>
+</div>
+
+<button mat-button (click)="goBack()">Back to Products</button> -->
+
+<div *ngFor="let review of reviews">
+  <h2>Reviews for {{ review.productName}}</h2>
+<div>
+  <h3>{{ review.customerName }}</h3>
+  <p>{{ review.comment }}</p>
+  <p>Date Posted: {{ review.datePosted | date:'medium' }}</p>
+  <p>Rating: 
+    <span *ngFor="let star of getStars(review.rating); let i = index" class="star" [class.filled]="i < review.rating">★</span>
+  </p>
+</div>
+
+ 
+</div>
+
+<div class="fixed-buttons">
+  <button mat-raised-button color="primary" (click)="back()">Back to Shop</button>
+  <button mat-raised-button color="accent" (click)="openReviewDialog()" >Write a Review</button>
+</div>

@@ -1,0 +1,186 @@
+
+
+<mat-toolbar class="toolbar" style="background-color: purple;">
+  <!-- Left-aligned Menu Button -->
+  <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>  
+
+  <!-- Title centered by using flex -->
+  <h1 class="toolbar-title">SbyS</h1>
+
+  <!-- Right-aligned Profile Picture and Button -->
+  <span class="spacer"></span>
+
+  <!-- Profile Picture --> 
+
+  <!-- Profile Button -->
+  <mat-list  (click)="onProfileClick()">
+    <span *ngIf="userName">{{ userName }}</span>
+  </mat-list>
+</mat-toolbar>
+
+
+
+
+
+<mat-sidenav-container class="sidenav-container" autosize>
+  <mat-sidenav 
+    [ngClass]="!isCollapsed ? 'expanded' : ''" 
+    [mode]="isMobile ? 'over' : 'side'" 
+    [opened]="!isMobile"
+    style="display: flex; flex-direction: column; align-items: center;">
+    <mat-nav-list style="width: 100%; text-align: center;">
+      <mat-list-item routerLink="/reports" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon> Dashboard
+      </mat-list-item>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>inventory</mat-icon> Product
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item [routerLink]="['./products']" routerLinkActive="active">
+            <mat-icon>icecream</mat-icon> Product 
+          </mat-list-item>
+          <mat-list-item [routerLink]="['./product-types']" routerLinkActive="active">
+            <mat-icon>category</mat-icon> Product Type
+          </mat-list-item>
+          <mat-list-item [routerLink]="['./occasion-types']" routerLinkActive="active">
+            <mat-icon>event</mat-icon> Occasion Type
+          </mat-list-item>
+          <mat-list-item [routerLink] = "['./cat-type']" routerLinkActive="active">
+            <mat-icon>label</mat-icon> Category Type
+          </mat-list-item>
+          <mat-list-item [routerLink]="['./packages']" routerLinkActive="active">
+            <mat-icon>local_offer</mat-icon> Package
+          </mat-list-item>
+          <mat-list-item [routerLink] = "['./package-types']" routerLinkActive="active">
+            <mat-icon>shopping_bag</mat-icon> Package Type
+          </mat-list-item>
+          <mat-list-item [routerLink] = "['./product-price']" routerLinkActive="active">
+            <mat-icon>money</mat-icon> Product price
+          </mat-list-item>
+          <mat-list-item [routerLink]="['./discounts']" routerLinkActive="active">
+            <mat-icon>percent</mat-icon> Discount
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title  routerLinkActive="active">
+            <mat-icon>book</mat-icon> Catalogue
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item [routerLink] = "['./special-occasion-catalogues']" routerLinkActive="active">
+            <mat-icon>book</mat-icon> Catalogues
+          </mat-list-item>
+        </mat-nav-list>
+        <mat-nav-list>
+          <mat-list-item [routerLink]= "['./send']" routerLinkActive="active">
+            <mat-icon>send</mat-icon> Send catalog
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>people</mat-icon> Employee
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item [routerLink]="['./employees']" routerLinkActive="active">
+            <mat-icon>list</mat-icon> Employee list
+          </mat-list-item>
+        </mat-nav-list>
+        <mat-nav-list>
+          <mat-list-item [routerLink]="['./employee-types']" routerLinkActive="active">
+            <mat-icon>list</mat-icon> Employee Type
+          </mat-list-item>
+        </mat-nav-list>
+        <mat-nav-list>
+          <mat-list-item [routerLink]="['./register-employee']" routerLinkActive="active">
+            <mat-icon>person_add</mat-icon> Register employee
+          </mat-list-item>
+        </mat-nav-list>
+        <mat-nav-list>
+          <mat-list-item [routerLink]="['./roles']" routerLinkActive="active">
+            <mat-icon>admin_panel_settings</mat-icon> Role
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>store</mat-icon> Stock
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item [routerLink]="['./stock']" routerLinkActive="active">
+            <mat-icon>list</mat-icon> Stock list
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>receipt</mat-icon> Vat
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item [routerLink] = "['./vats']" routerLinkActive="active">
+            <mat-icon>receipt</mat-icon> Vat
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>local_shipping</mat-icon> Supplier
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item class="fas fa-truck" [routerLink]="['./suppliers']" routerLinkActive="active">
+            <mat-icon>list</mat-icon> Suppliers
+          </mat-list-item>
+          <mat-list-item class="fas fa-truck" [routerLink] = "['./supplier-order']" routerLinkActive="active">
+            <mat-icon>list</mat-icon> Supplier Orders
+          </mat-list-item>
+        
+        </mat-nav-list>
+        
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>user</mat-icon> User
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <mat-list-item class="fas fa-truck" [routerLink] = "['./user']" routerLinkActive="active">
+            <mat-icon>user</mat-icon> Users
+          </mat-list-item>
+        </mat-nav-list>
+        
+      </mat-expansion-panel>
+
+      <hr>
+      <button mat-button-icon (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

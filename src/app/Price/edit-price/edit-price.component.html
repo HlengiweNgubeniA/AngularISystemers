@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Edit Product Price</h2>
+<mat-dialog-content>
+  <form [formGroup]="priceform" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number" required />
+      <mat-error *ngIf="priceform.get('price')?.hasError('required')">
+        Price is required.
+      </mat-error>
+      <mat-error *ngIf="priceform.get('price')?.hasError('min')">
+        Price cannot be negative.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" required></textarea>
+      <mat-error *ngIf="priceform.get('description')?.hasError('required')">
+        Description is required.
+      </mat-error>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="priceform.invalid">Update</button>
+    </div>
+  </form>
+</mat-dialog-content>
+

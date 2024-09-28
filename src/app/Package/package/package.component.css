@@ -1,0 +1,23 @@
+.package-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .package-card {
+    width: calc(33% - 32px);
+    margin-bottom: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .package-card {
+      width: calc(50% - 32px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .package-card {
+      width: 100%;
+    }
+  }
+  

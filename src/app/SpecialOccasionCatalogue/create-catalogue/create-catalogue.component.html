@@ -1,0 +1,190 @@
+<!-- <h1>Add catalogue</h1>
+<br>
+<div class="form-container">
+  <form [formGroup]="catalogueForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="catTitle" type="text">
+      <p *ngIf="catalogueForm.get('catTitle')?.hasError('required')">Title is required</p>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="catDescription"></textarea>
+    </mat-form-field>
+    
+     <mat-form-field appearance="fill">
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Included Items</mat-label>
+      <textarea matInput formControlName="includedItems"></textarea>
+    </mat-form-field> 
+    <mat-form-field appearance="fill">
+      <mat-label>Some Label</mat-label>
+      <input matInput formControlName="someControl" placeholder="Enter something">
+    </mat-form-field>
+    
+    <h3>Included Items</h3>
+    <div *ngFor="let product of products">
+      <mat-checkbox [formControlName]="'includedItems'" [value]="product.id.toString()">
+        {{ product.name }} - Original Price: {{ product.price }}$
+      </mat-checkbox>
+    </div>
+    
+    
+    <div>
+      <strong>Total Discounted Price:</strong> {{ totalDiscountedPrice | number: '1.2-2' }}$
+    </div>
+    
+
+    
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input matInput formControlName="startDate" [matDatepicker]="startPicker">
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+    
+
+       Error message displayed here 
+  <div *ngIf="dateValidationError" class="date-error">
+    <mat-error>
+      {{ dateValidationError }}
+    </mat-error>
+  </div>
+
+    
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>End Date</mat-label>
+      <input matInput formControlName="endDate" [matDatepicker]="endPicker">
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Occasion Type</mat-label>
+      <mat-select formControlName="occasionTypeId">
+        <mat-option *ngFor="let type of occasionTypes" [value]="type.occasionTypeId">
+          {{ type.occasionTypeName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Discount</mat-label>
+      <mat-select formControlName="discountId">
+        <mat-option *ngFor="let discount of discounts" [value]="discount.discountId">
+          {{ discount.disName }} - {{ discount.disDescription }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+     Display the selected discount percentage 
+<div *ngIf="selectedDiscountPercentage !== null">
+  Selected Discount Percentage: {{ selectedDiscountPercentage / 100 }}%
+</div>
+    <br>
+    <input type="file" (change)="onFileChange($event)">
+    <br>
+    
+    <button mat-raised-button color="primary" type="submit">Create</button>
+  </form>
+</div> -->
+  
+<h1 class="form-title">Add Catalogue</h1>
+
+<div class="form-container">
+  <form [formGroup]="catalogueForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="catTitle" type="text">
+      <mat-error *ngIf="catalogueForm.get('catTitle')?.hasError('required')">Title is required</mat-error>
+    </mat-form-field> 
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="catDescription"></textarea>
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Start Date</mat-label>
+      <input matInput formControlName="startDate" [matDatepicker]="startPicker">
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+      <mat-error *ngIf="dateValidationError">{{ dateValidationError }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>End Date</mat-label>
+      <input matInput formControlName="endDate" [matDatepicker]="endPicker">
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+    
+     <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Occasion Type</mat-label>
+      <mat-select formControlName="occasionTypeId">
+        <mat-option *ngFor="let type of occasionTypes" [value]="type.occasionTypeId">
+          {{ type.occasionTypeName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Discount</mat-label>
+      <mat-select formControlName="discountId">
+        <mat-option *ngFor="let discount of discounts" [value]="discount.discountId">
+          {{ discount.disName }} - {{ discount.disDescription }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div *ngIf="selectedDiscountPercentage !== null" class="discount-percentage">
+      Selected Discount Percentage: {{ selectedDiscountPercentage }}%
+    </div>
+    <!-- <h3 class="included-items-title">Included Items</h3>
+<mat-form-field appearance="fill">
+  <mat-label>Choose Included Items</mat-label>
+  <mat-select formControlName="includedItems" multiple>
+    <mat-option *ngFor="let product of products" [value]="product.id.toString()">
+      {{ product.name }}: R{{ product.price }}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+<h3 class="included-items-title">Included Items</h3>
+<div class="included-items-container" style="display: flex; align-items: flex-start;">
+  <mat-form-field appearance="fill" style="flex: 1; margin-right: 16px;">
+    <mat-label>Choose Included Items</mat-label>
+    <mat-select formControlName="includedItems" multiple>
+      <mat-option *ngFor="let product of products" [value]="product.id.toString()">
+        {{ product.name }}: R{{ product.price }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="selected-items" style="flex: 1;">
+    <h4>Selected Items:</h4>
+    <ul>
+      <li *ngFor="let product of selectedProducts">{{ product.name }}: R{{ product.price }}</li>
+    </ul>
+  </div>
+</div>
+
+
+
+    <div class="total-price">
+      <strong>Total Discounted Price:</strong> R{{ totalDiscountedPrice | number: '1.2-2' }}
+    </div>
+
+
+   
+
+    <input type="file" (change)="onFileChange($event)" accept="image/*" class="file-input">
+
+    <button mat-raised-button color="primary" type="submit" class="submit-button">Create</button>
+  </form>
+</div>

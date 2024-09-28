@@ -1,0 +1,27 @@
+<div class="employee-report-container">
+    <h2>Employee Report</h2>
+    <input type="text" placeholder="Search employees..." (input)="filterEmployees($event)">
+    <table mat-table [dataSource]="filteredEmployees" class="mat-elevation-z8">
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.empFirstName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.empLastName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.empEmail}} </td>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.empPhone}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="['firstName', 'lastName', 'email', 'phone']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['firstName', 'lastName', 'email', 'phone']"></tr>
+    </table>
+    <button mat-raised-button color="primary" (click)="downloadPDF()">Download PDF</button>
+    <button mat-raised-button color="accent" (click)="exportExcel()">Export Excel</button>
+</div>
+

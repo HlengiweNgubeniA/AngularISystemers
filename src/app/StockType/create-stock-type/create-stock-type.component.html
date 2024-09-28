@@ -1,0 +1,17 @@
+<div class="form-container">
+    <form [formGroup]="stockTypeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+        <p *ngIf="stockTypeForm.get('name')?.hasError('required')">Please provide a name</p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </div>
+    

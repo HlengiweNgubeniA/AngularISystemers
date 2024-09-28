@@ -1,0 +1,48 @@
+<div class="settings-container">
+    <h1>Settings</h1>
+  
+    <!-- Form to update user details -->
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Enter your name" formControlName="name" />
+        <mat-error *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Enter your email" formControlName="email" />
+        <mat-error *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+          Please enter a valid email
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Enter your password" formControlName="password" />
+        <mat-error *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+          Password is required and must be at least 6 characters
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" placeholder="Confirm your password" formControlName="confirmPassword" />
+        <mat-error *ngIf="userForm.hasError('mismatch') && userForm.get('confirmPassword')?.touched">
+          Passwords do not match
+        </mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" [disabled]="userForm.invalid">Update Details</button>
+    </form>
+  
+    <!-- Display current user details -->
+    <div class="current-user-info" *ngIf="currentUser">
+      <h3>Current User Info</h3>
+      <p><strong>Name:</strong> {{ currentUser.name }}</p>
+      <p><strong>Email:</strong> {{ currentUser.email }}</p>
+    </div>
+  </div>
+  

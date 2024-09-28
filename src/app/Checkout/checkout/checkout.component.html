@@ -1,0 +1,33 @@
+<div class="payment-container">
+    <h1 class="payment-title">PAYMENT</h1>
+    <h2 class="payment-subtitle">ALL TRANSACTIONS ARE SECURE AND ENCRYPTED</h2>
+    
+    <form id="payment-form" class="payment-form" (ngSubmit)="makePayment()">
+      <!-- Link Authentication Element -->
+      <div id="link-authentication-element">
+        <!-- Stripe.js injects the Link Authentication Element -->
+      </div>
+  
+      <!-- Payment Element -->
+      <div id="payment-element">
+        <!-- Stripe.js injects the Payment Element -->
+      </div>
+      
+      <!-- Payment Button -->
+      <button id="submit" class="payment-button" type="submit" [disabled]="!stripe || !elements">
+        <span id="button-text">PAY {{ amount | currency:'ZAR' }}</span>
+      </button>
+      
+      <!-- Payment Message (Hidden by Default) -->
+      <div id="payment-message" class="hidden"></div>
+    </form>
+    
+    <!-- Success Message -->
+    <ng-container *ngIf="payment.openSuccess">
+      <div class="payment-success">
+        <h1>Thank you, payment was successful!</h1>
+      </div>
+    </ng-container>
+  </div>
+  
+  

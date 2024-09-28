@@ -1,0 +1,21 @@
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  .form-card {
+    width: 400px; /* Adjust the width as needed */
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  

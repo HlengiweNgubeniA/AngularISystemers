@@ -1,0 +1,51 @@
+
+
+  
+<div class="container">
+  <!-- Toolbar with Add button aligned to the right -->
+  <mat-toolbar color="primary" class="toolbar">
+    <span>Product Prices</span>
+    <span class="spacer"></span>
+    <button mat-raised-button color="accent" (click)="openAddDialog()">Add</button>
+  </mat-toolbar>
+
+  <!-- Centered Table -->
+  <mat-card>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.productPriceId}} </td>
+      </ng-container>
+
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+        <td mat-cell *matCellDef="let element"> R{{element.price}} </td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-raised-button color="primary" (click)="openEditDialog(element)"><mat-icon>edit</mat-icon>Edit</button>
+          <button mat-raised-button color="warn" (click)="openDeleteDialog(element.productPriceId, element.price)"><mat-icon>delete</mat-icon>Delete</button>
+        </td>
+      </ng-container>
+
+      <!-- Table Header and Row Declarations -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- Paginator -->
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card>
+</div>

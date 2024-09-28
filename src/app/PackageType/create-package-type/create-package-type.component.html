@@ -1,0 +1,18 @@
+<div class="form-container">
+    <form [formGroup]="packageTypeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="packageTypeName" type="text">
+        <p *ngIf="packageTypeForm.get('packageTypeName')?.hasError('required')">Please provide a name</p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="packageTypeDescription"></textarea>
+      </mat-form-field>
+      <br>
+      
+      <button mat-raised-button color="primary" type="submit" onclick="onSubmit()">Create</button>
+    </form>
+  </div>
+  

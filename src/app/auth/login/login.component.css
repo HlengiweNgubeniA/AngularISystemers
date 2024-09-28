@@ -1,0 +1,43 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  form {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 24px;
+    width: 300px; /* Adjust the width as needed */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Optional: add background color */
+  }
+  
+  .form-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
+  .form-links a {
+    text-decoration: none;
+    color: #3f51b5;
+  }
+
+  /* login.component.css */
+mat-form-field {
+  width: 100%;
+}
+
+button.mat-icon-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent; /* Optional: make it transparent */
+}
+
+.mat-form-field {
+  position: relative;
+}

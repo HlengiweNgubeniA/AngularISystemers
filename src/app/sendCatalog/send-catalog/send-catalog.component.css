@@ -1,0 +1,50 @@
+.card-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .body-field-container {
+    position: relative;
+  }
+  html, body{
+    overflow: auto;
+    overflow-y: scroll;
+  }
+  
+  .attachment-icon {
+    position: absolute;
+    top: 16px; /* Adjust as needed */
+    right: 16px; /* Adjust as needed */
+    cursor: pointer;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.54);
+  }
+  
+  .file-previews {
+    margin-top: 16px; /* Space between textarea and file previews */
+  }
+  
+  .file-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 8px;
+  }
+  
+  .file-thumbnail {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    object-fit: cover;
+    margin-bottom: 8px;
+  }
+  
+  .file-pdf-preview {
+    width: 100%; /* Adjust size as needed */
+    height: 200px; /* Adjust size as needed */
+    border: none;
+    margin-bottom: 8px;
+  }
+  
+  input[type="file"] {
+    display: none; /* Hide the default file input */
+  }

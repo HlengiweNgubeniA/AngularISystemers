@@ -1,0 +1,37 @@
+
+<div class="form-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+      <h3>Login</h3>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Email Address</mat-label>
+      <input matInput formControlName="email" type="email">
+      <p *ngIf="loginForm.get('emailAddress')?.hasError('required')">Email is required</p>
+      <p *ngIf="loginForm.get('emailAddress')?.hasError('email')">Invalid email address</p>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" [type]="isPasswordVisible ? 'text' : 'password'">
+      <p *ngIf="loginForm.get('password')?.hasError('required')">Password is required</p>
+      <p *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 12 characters long</p>
+      <p *ngIf="loginForm.get('password')?.hasError('lowercase')">Must include at least 1 lowercase letter</p>
+      <p *ngIf="loginForm.get('password')?.hasError('uppercase')">Must include at least 1 uppercase letter</p>
+      <p *ngIf="loginForm.get('password')?.hasError('number')">Must include at least 1 number</p>
+      <p *ngIf="loginForm.get('password')?.hasError('special')">Must include at least 1 special character</p>
+    </mat-form-field>
+    
+    <div>
+      <button mat-raised-button color="primary" type="submit">Login</button>
+    </div>
+
+    <div class="form-links">
+      <a mat-button routerLink="/register">Register</a>
+      <a mat-button  (click)="openForgotPasswordDialog()">Forgot Password?</a>
+    </div>
+  </form>
+
+  <app-pop-up></app-pop-up>
+
+</div>

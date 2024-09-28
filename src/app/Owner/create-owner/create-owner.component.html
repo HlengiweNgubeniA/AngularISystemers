@@ -1,0 +1,27 @@
+<div class="form-container">
+    <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+        <p *ngIf="ownerForm.get('name')?.hasError('required')">Please provide a name</p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>User ID</mat-label>
+        <textarea matInput formControlName="userId"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Contact Number:</mat-label>
+        <textarea matInput formControlName="contact"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Physical Address: </mat-label>
+        <textarea matInput formControlName="address"></textarea>
+      </mat-form-field>
+      <br>
+      
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </div>

@@ -1,0 +1,16 @@
+<button mat-raised-button color="primary" routerLink="/create-customer">Create New Customer</button>
+
+<div class="customer-container">
+  <mat-card *ngFor="let customer of customers" class="customer-card">
+    <mat-card-title>{{ customer.userId }}</mat-card-title>
+    <mat-card-subtitle>{{ customer.cusFirstName }} - {{ customer.cusLastName }}</mat-card-subtitle>
+    <mat-card-content>
+      <p> {{ customer.cusPhone }}</p>
+      <p> {{ customer.cusEmail }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editCustomer(customer.customerId)">Edit</button>
+      <button mat-button color="warn" (click)="deleteCustomer(customer.customerId)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

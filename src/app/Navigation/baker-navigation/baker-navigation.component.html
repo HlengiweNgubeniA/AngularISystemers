@@ -1,0 +1,72 @@
+
+
+<mat-toolbar style="background-color: green;">
+    <!-- Left-aligned Menu Button -->
+    <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  
+    <!-- Title centered by using flex -->
+    <h1 class="toolbar-title">SbyS</h1>
+  <h2>Order Management/Processing</h2>
+    <!-- Right-aligned Profile Picture and Button -->
+    <span class="spacer"></span>
+  
+    <!-- Profile Picture --> 
+  
+    <!-- Profile Button -->
+    <!-- Profile Button -->
+  <mat-list  (click)="onProfileClick()">
+    <span *ngIf="userName">{{ userName }}</span>
+  </mat-list>
+  </mat-toolbar>
+  
+  
+  <mat-sidenav-container autosize>
+    <mat-sidenav 
+      [ngClass]="!isCollapsed ? 'expanded' : ''" 
+      [mode]="isMobile ? 'over' : 'side'" 
+      [opened]="!isMobile"
+      style="display: flex; flex-direction: column; align-items: center;">
+      <mat-nav-list style="width: 100%; text-align: center;">
+       
+      
+        <!-- <mat-list>
+            <mat-list-item  [routerLink]="['./Orders']" routerLinkActive="active">
+              <mat-icon>cart</mat-icon> Orders <span > {{ orderCount }}</span>
+            </mat-list-item>
+          </mat-list> -->
+
+          <mat-list>
+  <mat-list-item [routerLink]="['/Baker/Orders']" routerLinkActive="active">
+    <mat-icon>cart</mat-icon> Orders 
+    <span [ngClass]="{ 'flicker': isFlickering }"> {{ orderCount }}</span>
+  </mat-list-item>
+</mat-list>
+
+          
+          <mat-list>
+            <mat-list-item [routerLink]="['/Baker/My-Orders']" routerLinkActive="active">
+              <mat-icon>book</mat-icon> My Orders
+            </mat-list-item>
+          </mat-list>
+       
+  
+       
+  
+          
+      
+  
+        <hr>
+        <button mat-button-icon (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

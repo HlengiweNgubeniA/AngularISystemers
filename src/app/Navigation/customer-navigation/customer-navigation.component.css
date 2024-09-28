@@ -1,0 +1,113 @@
+/* Ensure the toolbar takes full width */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Add margin to toolbar to separate from the content */
+mat-toolbar {
+  margin-bottom: 20px;
+}
+
+/* Set the sidenav-container to take the full height minus the toolbar height */
+mat-sidenav-container {
+  height: calc(100vh - 64px); /* Adjust height based on toolbar */
+  display: flex;
+  flex-direction: row; /* Ensure the side-nav and content are side-by-side */
+}
+
+/* Style the side-nav to remain fixed and not scroll with content */
+.sidenav {
+  width: 250px;
+  position: fixed; /* Fix the sidenav */
+  top: 64px; /* Align it under the toolbar */
+  bottom: 0;
+  height: calc(100vh - 64px); /* Full height minus the toolbar */
+  background: #fff; /* Ensure the background is visible */
+  overflow: auto; /* Allow the sidenav to scroll if content exceeds viewport */
+  z-index: 1;
+}
+
+/* The content area should fill remaining space and scroll if content is too long */
+mat-sidenav-content {
+  margin-left: 250px; /* Leave space for the sidenav */
+  padding: 16px;
+  flex-grow: 1;
+  overflow-y: auto; /* Ensure content can scroll if it overflows the page */
+  height: calc(100vh - 64px); /* Ensure full height is used */
+}
+
+/* Make the icon pulse for attention */
+.green-icon {
+  color: green;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  /* Hide the sidenav and make it toggleable on smaller screens */
+  .sidenav {
+    width: 100%;
+    position: relative;
+    height: auto;
+    top: 0;
+  }
+
+  mat-sidenav-content {
+    margin-left: 0;
+  }
+
+  /* Stack content vertically */
+  mat-toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .spacer {
+    display: none;
+  }
+}
+
+
+.profile-picture {
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border-radius: 50%; /* Makes it circular */
+  overflow: hidden; /* Hides overflow */
+  display: flex;
+  align-items: center; /* Centers the image vertically */
+  justify-content: center; /* Centers the image horizontally */
+}
+
+.profile-picture img {
+  width: 100%; /* Ensures image covers the container */
+  height: auto; /* Maintains aspect ratio */
+  min-width: 100%; /* Ensures the image fills the container */
+  min-height: 100%; /* Ensures the image fills the container */
+}
+/* Profile container styles */
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Thumbnail styling */
+.profile-thumbnail {
+  width: 60px; /* Set the width for the thumbnail */
+  height: 60px; /* Set the height for the thumbnail */
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover; /* Ensure the image fits without being distorted */
+  margin-right: 10px; /* Add some space between the image and the name */
+}

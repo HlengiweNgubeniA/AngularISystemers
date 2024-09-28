@@ -1,0 +1,32 @@
+<div class="form-container">
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>UserId: </mat-label>
+        <input matInput formControlName="UserId" type="text">
+        <p *ngIf="customerForm.get('userId')?.hasError('required')"></p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>First Name:</mat-label>
+        <textarea matInput formControlName="cusFirstName"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name:</mat-label>
+        <textarea matInput formControlName="cusLastName"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number:</mat-label>
+        <textarea matInput formControlName="cusPhone"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Email Address:</mat-label>
+        <textarea matInput formControlName="cusEmail"></textarea>
+      </mat-form-field>
+      <br>
+      
+      <button mat-raised-button color="primary" type="submit">Create Customer</button>
+    </form>
+  </div>

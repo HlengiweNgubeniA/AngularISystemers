@@ -1,0 +1,19 @@
+/* src/app/order-line/order-line.component.css */
+.accept-button {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    /* text-transform: uppercase; */
+  }
+  
+  .accept-button:hover {
+    background-color: #1976d2; /* Darker primary color on hover */
+    color: white; /* Ensures text is readable on hover */
+  }
+  
+  .accept-button:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.8); /* Adds a glowing effect on focus */
+  }
+  

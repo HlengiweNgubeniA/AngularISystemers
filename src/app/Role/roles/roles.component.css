@@ -1,0 +1,36 @@
+.container {
+    margin: 20px;
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+
+  body{
+    overflow: auto;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+    margin-top: 20px; /* Optional: Add margin for spacing */
+  }
+  
+  /* Ensure buttons are aligned side by side with space between them */
+.action-buttons {
+  display: flex;
+  gap: 10px; /* Adds spacing between the buttons */
+}
+
+
+
+

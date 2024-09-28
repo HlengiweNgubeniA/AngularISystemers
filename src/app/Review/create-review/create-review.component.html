@@ -1,0 +1,61 @@
+<!-- <div class="form-container">
+    <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="customerName" type="text">
+        <p *ngIf="reviewForm.get('customerName')?.hasError('required')"></p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Product Reviewed</mat-label>
+        <textarea matInput formControlName="productReviewed"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Rating</mat-label>
+        <textarea matInput formControlName="rating"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Comment</mat-label>
+        <textarea matInput formControlName="comment"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>datePosted</mat-label>
+        <input matInput formControlName="datePosted" [matDatepicker]="endPicker">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      
+      <button mat-raised-button color="primary" type="submit" onclick="createReview">Create</button>
+    </form>
+  </div> -->
+
+
+  <!-- Thuso -->
+   <!-- review-dialog.component.html -->
+   <h2>Write a Review for</h2>
+
+   <form>
+     <mat-form-field appearance="fill">
+       <mat-label>Rating</mat-label>
+       <mat-select [(ngModel)]="review.rating" name="rating">
+         <mat-option *ngFor="let star of [1, 2, 3, 4, 5]" [value]="star">{{ star }} Stars</mat-option>
+       </mat-select>
+     </mat-form-field>
+   
+     <mat-form-field appearance="fill">
+       <mat-label>Comment</mat-label>
+       <textarea matInput [(ngModel)]="review.comment" name="comment"></textarea>
+     </mat-form-field>
+   
+     <div class="modal-actions">
+       <button mat-raised-button color="primary" (click)="submitReview()">Submit</button>
+       <button mat-button (click)="close()">Cancel</button>
+     </div>
+   </form>
+   
+
+

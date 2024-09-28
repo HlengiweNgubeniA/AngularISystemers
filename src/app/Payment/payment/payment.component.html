@@ -1,0 +1,16 @@
+<div>
+    <button (click)="initiatePayment(1)">Pay for Order</button>
+    <!-- Replace `1` with dynamic orderId as needed -->
+  </div>
+
+`
+<mat-card>
+  <mat-form-field appearance="fill">
+    <mat-label>Amount</mat-label>
+    <input matInput placeholder="Enter amount" [(ngModel)]="amount">
+  </mat-form-field>
+  <button mat-raised-button (click)="pay()">Pay Now</button>
+</mat-card>
+`
+
+ 

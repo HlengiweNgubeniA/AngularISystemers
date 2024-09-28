@@ -1,0 +1,23 @@
+<div class="form-container">
+    <form [formGroup]="courierForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Courier</mat-label>
+        <input matInput formControlName="name" type="text">
+        <p *ngIf="courierForm.get('name')?.hasError('required')">Provide name</p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <textarea matInput formControlName="status"></textarea>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </div>
+
+  

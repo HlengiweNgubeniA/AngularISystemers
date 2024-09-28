@@ -1,0 +1,57 @@
+<div class="form-container">
+    <form [formGroup]="supplierOrderForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Delivery Address</mat-label>
+        <input matInput formControlName="deliveryAddress" type="text">
+        <p *ngIf="supplierOrderForm.get('deliveryAddress')?.hasError('required')"></p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Payment Method</mat-label>
+        <textarea matInput formControlName="paymentMethod"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Order Items</mat-label>
+        <textarea matInput formControlName="sOrderItems"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <textarea matInput formControlName="quantity"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Payment Amount</mat-label>
+        <textarea matInput formControlName="paymentAmount"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Order</mat-label>
+        <input matInput formControlName="sOrderDate" [matDatepicker]="startPicker">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Employee Responsible</mat-label>
+        <mat-select formControlName="empId">
+          <mat-option *ngFor="let employee of employees" [value]="employee.empId">
+            {{ employee.empFirstName  }}  {{ employee.empLastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Supplier</mat-label>
+        <mat-select formControlName="supplierId">
+          <mat-option *ngFor="let supplier of suppliers" [value]="supplier.supplierId">
+            {{ supplier.supName }} - {{ supplier.contactPerson }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </div>

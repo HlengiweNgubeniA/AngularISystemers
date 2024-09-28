@@ -1,0 +1,84 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  
+  mat-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  
+  mat-toolbar button {
+    margin-right: 10px;
+  }
+  
+  mat-toolbar span {
+    margin-right: 30px;
+  }
+  
+  /* Make the toolbar fixed at the top */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's on top of other content */
+    height: 64px;
+  }
+  
+  
+  /* Ensure the content starts after the fixed toolbar */
+  .content {
+    margin-top: 64px; /* Height of the toolbar (56px + some margin for padding) */
+    padding: 20px;
+    overflow-y: auto; /* Allow the content to be scrollable */
+    height: calc(100vh - 64px); /* Calculate height minus the toolbar */
+    box-sizing: border-box; /* Ensure padding is included in height calculation */
+  
+
+}
+  
+  /* Basic styling for the content */
+  h1 {
+    font-size: 24px;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .content::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+  }
+
+  /* Hide the scrollbar for the entire webpage */
+html, body {
+    overflow-y: scroll; /* Keep the scroll functionality */
+    scrollbar-width: none; /* For Firefox */
+  }
+  
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+  }
+
+  .basket-count {
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 3px 7px;
+    position: absolute;
+    top: 8px;
+    right: 4px;
+  }
+
+  .container {
+    margin-top: 60px; /* Adjust this value to match the height of your navbar */
+}
+
+
+.container {
+  margin-top: calc(60px + 1rem);
+}

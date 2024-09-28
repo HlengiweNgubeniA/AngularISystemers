@@ -1,0 +1,18 @@
+<div class="form-container">
+    <form [formGroup]="statusForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="statusName" type="text">
+        <p *ngIf="statusForm.get('statusName')?.hasError('required')">Please provide a name</p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="statusDescription"></textarea>
+      </mat-form-field>
+      <br>
+     
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </div>
+  

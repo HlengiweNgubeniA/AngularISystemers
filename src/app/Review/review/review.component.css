@@ -1,0 +1,71 @@
+.reviews-container {
+    position: relative;
+    padding-bottom: 60px; /* Adjust this based on button height */
+  }
+  
+  .write-review-button {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    left: 50%; /* Center the button */
+    transform: translateX(-50%); /* Center alignment */
+    z-index: 1000; /* Ensure the button is above other elements */
+  }
+  
+  .rating-stars {
+    color: gold; /* Color for filled stars */
+  }
+  
+  .review-page {
+    padding: 20px;
+  }
+  
+  .review-page h2 {
+    margin-bottom: 20px;
+  }
+  
+  .review-page h3 {
+    margin: 10px 0;
+  }
+  
+  .review-page p {
+    margin: 5px 0;
+  }
+  
+
+  .star {
+    font-size: 20px;
+    color: gray
+  }
+
+  .filled {
+    color: gold;
+  }
+
+  .fixed-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9; /* Optional background color */
+    border-top: 1px solid #ddd; /* Optional border */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Optional shadow for effect */
+  }
+  
+  .fixed-buttons button {
+    flex: 1;
+    margin: 0 10px;
+    font-size: 16px;
+  }
+  
+  .fixed-buttons button:first-child {
+    margin-left: 0;
+  }
+  
+  .fixed-buttons button:last-child {
+    margin-right: 0;
+  }
+  
+  

@@ -1,0 +1,61 @@
+<div class="form-container">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text" appCapitalize>
+        <p *ngIf="productForm.get('name')?.hasError('required')">Please provide a name</p>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" appCapitalize></textarea>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Product Category</mat-label>
+        <mat-select formControlName="productCategoryId">
+          <mat-option *ngFor="let category of productCategories" [value]="category.productCategoryId">
+            {{ category.productCategoryName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Product Type</mat-label>
+        <mat-select formControlName="productTypeId">
+          <mat-option *ngFor="let productType of productTypes" [value]="productType.id">
+            {{ productType.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <mat-select formControlName="productPriceId">
+          <mat-option *ngFor="let price of productPrices" [value]="price.productPriceId">
+            {{ price.price }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Size</mat-label>
+        <mat-select formControlName="sizeId">
+          <mat-option *ngFor="let size of productSizes" [value]="size.id">
+            {{ size.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <input type="file" (change)="onFileChange($event)">
+      <br>
+      
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </div>
+  

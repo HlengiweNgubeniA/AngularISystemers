@@ -1,0 +1,29 @@
+<button mat-raised-button color="primary" routerLink="/create-owner">Create Owner</button>
+
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by name">
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="owner-container">
+  <mat-card *ngFor="let owner of dataSource.filteredData" class="owner-card">
+    <mat-card-title>{{ owner.id }}</mat-card-title>
+    <mat-card-title>{{ owner.userId }}</mat-card-title>
+    <mat-card-subtitle>{{ owner.name }} </mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ owner.contact }}</p>
+      <p>{{ owner.address }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editOwner(owner.id)">Edit</button>
+      <button mat-button color="warn" (click)="deleteOwner(owner.id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+

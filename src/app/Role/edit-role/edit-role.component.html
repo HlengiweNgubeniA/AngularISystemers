@@ -1,0 +1,38 @@
+<!-- <h2 class="modal-title">Edit Role</h2>
+<form [formGroup]="editRoleForm" (ngSubmit)="onSubmit()" class="edit-role-form">
+  <label for="roleName">Role Name</label>
+  <input id="roleName" formControlName="name" class="form-input" />
+
+  <div *ngIf="editRoleForm.controls['name'].invalid && editRoleForm.controls['name'].touched" class="error-message">
+    Role name is required
+  </div>
+
+  <div class="button-group">
+    <button type="submit" [disabled]="editRoleForm.invalid" class="submit-button">Update Role</button>
+    <button type="button" (click)="closeModal()" class="cancel-button">Cancel</button>
+  </div>
+</form> -->
+
+<mat-card>
+  <h2 class="modal-title">Edit Role</h2>
+  <form [formGroup]="editRoleForm" (ngSubmit)="onSubmit()" class="edit-role-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Role Name</mat-label>
+      <input matInput id="roleName" formControlName="name" />
+      <mat-error *ngIf="editRoleForm.controls['name'].invalid && editRoleForm.controls['name'].touched">
+        Role name is required
+      </mat-error>
+    </mat-form-field>
+
+    <div class="button-group">
+      <button mat-raised-button color="primary" type="submit" [disabled]="editRoleForm.invalid" class="submit-button">
+        Update Role
+      </button>
+      <button mat-button type="button" (click)="closeModal()" class="cancel-button">
+        Cancel
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+  

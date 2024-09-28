@@ -1,0 +1,29 @@
+<div class="form-container">
+  <h2 class="modal-title">Edit Employee Type Details</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Type Name</mat-label>
+      <input matInput formControlName="employeeTypeName" type="text">
+      <p *ngIf="editForm.get('employeeTypeName')?.hasError('required')" class="error-message">Type name is required.</p>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="employeeTypeDescription"></textarea>
+      <p *ngIf="editForm.get('employeeTypeDescription')?.hasError('required')" class="error-message">Type name is required.</p>
+    </mat-form-field>
+    <br>
+
+    <div class="button-group">
+      <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid" class="submit-button">
+        Update Role
+      </button>
+      <button mat-button type="button" (click)="closeModal()" class="cancel-button">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
+
+  

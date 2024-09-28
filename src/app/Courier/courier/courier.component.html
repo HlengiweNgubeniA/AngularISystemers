@@ -1,0 +1,25 @@
+<button mat-raised-button color="primary" routerLink="/create-courier">Create Courier</button>
+
+<div class="search-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search by name">
+    <button mat-icon-button matSuffix>
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="courier-container">
+  <mat-card *ngFor="let courier of dataSource.filteredData" class="courier-card">
+    <mat-card-title>Courier Name: {{ courier.name }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ courier.description }}</p>
+      <p> {{ courier.status }} </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="editCourier(courier.courierId)">Edit</button>
+      <button mat-button color="warn" (click)="deleteCourier(courier.courierId)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
